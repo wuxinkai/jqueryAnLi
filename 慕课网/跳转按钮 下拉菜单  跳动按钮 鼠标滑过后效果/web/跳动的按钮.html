@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .section .btns a{position: relative;  float: left;  width: 320px;  height: 60px;  line-height: 60px;  font-size: 24px;  text-align: center;  cursor: pointer;  -webkit-animation: faguang 1s ease 0s infinite alternate;}
+        .section .btns a:link, .section .btns a:visited{color: rgb(199, 32, 32);
+            text-shadow: 1px 1px 1px white;
+            border-radius: 15px;
+            box-shadow: 1px 1px 1px black;
+            background-color: gold;
+            background: url(../img/qiuqiu.png) top left, url(../img/qiuqiu.png) right bottom , -webkit-linear-gradient(top,rgb(255, 200, 0) ,rgb(255, 181, 0) 25%,rgb(255, 181, 0));
+            background: url(../img/qiuqiu.png) top left, url(../img/qiuqiu.png) right bottom , -moz-linear-gradient(top,rgb(255, 200, 0) ,rgb(255, 181, 0) 25%,rgb(255, 181, 0));
+            -webkit-animation: paopao 3s linear 0s infinite alternate;
+            -moz-animation: paopao 3s linear 0s infinite alternate;}
+        .section .btns a:hover{
+            -webkit-animation:tiao 0.2s ease 0s infinite alternate;
+            -moz-animation:tiao 0.2s ease 0s infinite alternate;
+        }
+        @-webkit-keyframes paopao{from{background: url(../img/qiuqiu.png) top left, url(../img/qiuqiu.png) right bottom , -webkit-linear-gradient(top,rgb(255, 200, 0) ,rgb(255, 181, 0) 25%,rgb(255, 181, 0));}to{	background: url(../img/qiuqiu.png) bottom left, url(../img/qiuqiu.png) right top , -webkit-linear-gradient(top,rgb(255, 200, 0) ,rgb(255, 181, 0) 25%,rgb(255, 181, 0));}}
+        @-moz-keyframes paopao{from{background: url(../img/qiuqiu.png) top left, url(../img/qiuqiu.png) right bottom , -moz-linear-gradient(top,rgb(255, 200, 0) ,rgb(255, 181, 0) 25%,rgb(255, 181, 0));}to{	background: url(../img/qiuqiu.png) bottom left, url(../img/qiuqiu.png) right top , -moz-linear-gradient(top,rgb(255, 200, 0) ,rgb(255, 181, 0) 25%,rgb(255, 181, 0));}}
+        @-webkit-keyframes tiao{from{margin-top:0;} to{margin-top: 15px;}}
+        @-moz-keyframes tiao{from{margin-top:0;} to{margin-top: 15px;}}
+
+
+        .section0 .verticalCenterBox{
+            position: absolute;
+            width: 1000px;
+            height: 460px;
+            top: 50%;
+            margin-top: -230px;
+        }
+        .section0 .lines{ position: absolute;top: 0;left: 0; width: 100%; height: 650px; background: url(../img/lines.png) center top; -webkit-animation:m 4s linear 0s infinite;}
+        @-webkit-keyframes m{0%{background-position:-900px 950px;opacity: 0;}50%{background-position:0 0;opacity: 0.9;}100%{background-position: 900px -950px;opacity: 0;}}
+
+        /*流行*/
+        .section0{height: 100%;   background: #264C77 url("../img/item_1.jpg") no-repeat scroll center center / cover;}
+        .liuxing .lines{position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 650px;
+            background: transparent url("../img/lines.png") repeat scroll center top;}
+        .section0 .lines{ position: absolute;top: 0;left: 0; width: 100%; height: 650px; background: url(../img/lines.png) center top; -webkit-animation:m 4s linear 0s infinite;}
+        @-webkit-keyframes m{0%{background-position:-900px 950px;opacity: 0;}50%{background-position:0 0;opacity: 0.9;}100%{background-position: 900px -950px;opacity: 0;}}
+    </style>
+</head>
+<body>
+    <div class="section0">
+        <div class="lines"></div>
+    </div>
+    <div class="section">
+        <div class="btns">
+            <a href="javascript:;">挑战自我 开始加油</a>
+        </div>
+    </div>
+</body>
+</html>

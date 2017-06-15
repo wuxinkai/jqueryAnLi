@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>淘宝网-淘！俺喜欢</title>
+<link rel="stylesheet" type="text/css" href="style/taobao.css"/>
+<link rel="shortcut icon" href="favicon.ico">
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+       /* 事件源.事件(函数);*/
+        /* $(".notice-hd ul li").mouseenter(function(event) {
+          当前的li 添加current  而 它的兄弟移除*/
+           /*alert($(this).index());返回的是当前的索引值
+           $(this).addClass('current').siblings().removeClass('current');
+           $(".notice-bd ul").eq($(this).index()).show().siblings().hide();
+        });
+*/
+
+/*         $(".notice-hd ul li").hover(function() {
+             var current=$(this);  //开始定时器里面没有$(this)
+             timer=setTimeout(fun,500);
+             function fun(){
+             current.addClass('current').siblings().removeClass('current');
+         
+            }
+         }, function() {
+             clearTimeout(timer);
+             timer=null;
+         });*/
+		 
+/*		var timer = null; //全局变量的定义一定要小心，不要造成全局变量污染的情况出现，每次声明全局变量都放在js代码的最开始位置，最好加上注释，提醒自己这个变量是做什么用的。  控制tab栏误操作开启的定时器
+		var myThis;//定时器不能使用this，在外部定义全局变量，让定时器获取当前元素
+		$(".notice-hd ul li").hover(function(e) {
+			myThis = $(this);//把用户操作的this保存在了变量当中
+			timer = setInterval(function(){//在定时器中没有this，我们可以通过变量的传递来拿到用户想控制的那个this
+				myThis.addClass('current').siblings().removeClass('current');
+			},1500);
+        },function(){
+			clearInterval(timer);
+			timer = null;
+		});*/
+		 
+		 
+		 
+		var timer = null;
+		
+		$('.notice-hd ul li').hover(function(e) {
+            //伪代码 为了增加用户体验 我们设置一个定时器-- 如果定时器时间内 用户还在li上 我们才认为用户要做的是切换操作  否侧我们就把定时器停掉
+			var myThis = $(this);
+			
+			timer = setInterval(function(){//在定时器中 $(this)代表是这个定时器 而不代表用户选中的那个元素
+				//1.5秒之后 才执行切换的代码 
+				myThis.addClass('current').siblings().removeClass('current');
+			},1500);
+        },function(){
+			//如果用户触发了离开事件，这是定时器还没到1.5秒的时候 我们应该把定时器清除
+			clearInterval(timer);
+			timer = null;
+		});
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+    });
+
+
+</script>
+</head>
+
+<body>
+<!--头部开始-->
+<div class="site-nav">
+	<div  class="site-nav-bd">
+    	<ul class="site-nav-
+        bd-l">
+        	<li>
+                    <a href="#" class="hot">亲，请登录</a>
+                    <a href="#">免费注册</a> 
+                   
+            </li>
+            <li>   
+                    <a href="#">手机逛淘宝</a>
+            </li>
+        
+        </ul>
+        <ul class="site-nav-bd-r">
+        	<li>
+               <a href="#">我的淘宝</a><span class="grayarr"></span>
+            </li>
+        	<li>
+               <a href="#"><span class="star car"></span>购物车</a>
+               <span class="grayarr redarr"></span>
+            </li>
+        	<li class="shou">
+                 <a href="#"><span class="star"></span>收藏夹</a>
+                 <span class="grayarr"></span>
+            </li>
+        	<li><a href="#">商品分类</a></li>
+        	<li class="line">|</li>
+        	<li>
+                <a href="#">卖家中心</a>
+                <span class="grayarr"></span>
+            </li>
+        	<li class="contact"><a href="#">联系客服</a></li>
+        	<li>
+               <a href="#"><span class="star buy"></span>网站导航</a>
+                <span class="grayarr redarr"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--小侧banner开始-->
+
+<div class="top-banner">
+	<a href="#"></a>
+</div>
+
+<!--wrap-->
+
+<div class="wrap">
+   <div class="logo">
+        <h1>
+            <a href="http://www.itcast.cn" title="淘宝网-淘，都喜欢">淘宝网-淘，都喜欢</a>
+        </h1>
+   </div>
+   <div class="search">
+   		<div class="search-t">
+        	<ul>
+            	<li class="current">宝贝</li>
+            	<li>天猫</li>
+            	<li>店铺</li>
+            </ul>
+        </div>
+   		<div class="search-m">
+        	<div class="search-m-l">
+            	<div class="placeholder">
+                	<div class="whitebox">
+                    	<input type="text" id="txt"/>
+                        <i></i>
+                        <label for="txt">搜“1212”试试，工厂直供底价疯抢中，好货抓紧收藏 </label>
+                    </div>
+                </div>
+                <div class="btn">
+                	<button>
+                    </button>
+                </div>
+            </div>
+            <div class="search-m-r">
+            	<a href="#">高级<br />搜索</a>
+            </div>
+        </div>
+   		<div class="search-b">
+        	<a href="#">男士外套</a>
+             <a href="#">雪地靴</a>
+              <a href="#">新款棉衣</a>
+               <a href="#" class="hot">羽绒衣</a>
+                <a href="#">打底裤</a>
+                 <a href="#">时尚保温杯</a>
+                  <a href="#">进口零食</a>
+                   <a href="#">秋冬四件套</a>
+                    <a href="#">时尚女包</a>
+                     <a href="#">马丁靴</a>
+                      <a href="#">秋冬童装</a>
+                       <a href="#">新款男鞋</a>
+                           <a href="#" class="more">更多></a>
+        </div>
+   
+   </div>
+   <script type="text/javascript">
+        function fun(){
+          /*  关掉这个盒子 就是 把这个盒子隐藏*/
+          /*隐藏这个盒子属性不能做，样式可以做。
+          控制html样式*/
+
+
+          document.getElementById("ma").style.display="none";
+
+        }
+
+   </script>
+   <div class="erweima" id="ma">
+   	<a href="#">
+    <p class="hot">来分20亿</p>
+    <img src="images/erweima.png" />
+    </a>
+    <span class="close" onclick="fun()">
+    	<s></s>
+    </span>
+   </div>
+</div>
+
+<!--cont开始-->
+<div class="cont">
+	<div class="subnav">
+    	<div class="flower"></div>
+    	<div class="subnav-hd">
+        	<a href="#" class="today"></a>
+        	<a href="#" class="untitle"></a>
+        	<a href="#" class="come"></a>
+        </div>
+        <div class="subnav-bd">
+        	<dl>
+            	<dt><s></s>主题市场</dt>
+                <dd>
+                	<a href="#">淘宝女人</a>
+                	<a href="#" class="c-3">运动派</a>
+                	<a href="#" class="c-2">情侣</a>
+                	<a href="#">淘宝男人</a>
+                	<a href="#" class="c-3">孕婴童</a>
+                	<a href="#" class="c-2">家居</a>
+                	<a href="#">美容护肤</a>
+                	<a href="#" class="c-3">中老年</a>
+                	<a href="#" class="c-2">美食</a>
+                	<a href="#">保险理财</a>
+                	<a href="#" class="c-3">有车族</a>
+                	<a href="#" class="c-2">装修</a>
+                	<a href="#">手机数码</a>
+                	<a href="#" class="c-3">生活家</a>
+                	<a href="#" class="c-2">游戏</a>
+                
+                </dd>
+                <dt><s class="special"></s>特色购物</dt>
+                <dd>
+                	<a href="#">淘宝二手</a>
+                	<a href="#" class="c-3">拍卖会</a>
+                	<a href="#" class="c-2">爱逛街 </a>
+                	<a href="#">淘宝奇葩</a>
+                	<a href="#" class="c-3">全球购</a>
+                	<a href="#" class="c-2">挑食 </a>
+                	<a href="#">淘宝同学 <i class="h"></i></a>
+                	<a href="#" class="c-3">淘女郎</a>
+                	<a href="#" class="c-2">星店</a>
+                	<a href="#" class="c-7">淘宝众筹</a>
+                	<a href="#" class="c-4">B格</a>
+                	<a href="#" class="c-4">动漫</a>
+                    <a href="#" class="c-2">强哥<i class="h"></i></a>
+                	<a href="#">生活服务</a>
+                	<a href="#" class="c-3">淘宝达人</a>
+                	<a href="#" class="c-2">搭配</a>
+                
+                </dd>
+                    <dt><s class="favourable"></s>优惠促销</dt>
+                <dd>
+                	<a href="#">天天特价</a>
+                	<a href="#" class="c-3">免费试用</a>
+                	<a href="#" class="c-2">清仓</a>
+                	<a href="#">一元起拍</a>
+                	<a href="#" class="c-3">淘金币 <i class="h"></i></a>
+                	<a href="#" class="c-2">夜抢购</a>            
+                </dd>
+                
+                   <dd class="lastdd">
+                	<a href="#">阿里旺旺</a>
+                	<a href="#" class="c-3">支付宝</a>
+                	<a href="#" class="c-2">来往</a>            
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div class="main">
+    	<div class="main-hd">
+			<ul class="main-hd-left">
+            	<li><a href="#">天猫</a></li>	
+            	<li><a href="#">聚划算</a></li>	
+            	<li><a href="#">超市</a></li>	
+            </ul>
+			<ul class="main-hd-center">
+            	<li class="pipe">|</li>	
+            	<li><a href="#">阿里旅行</a></li>	
+            	<li><a href="#" class="nopadding"><img src="images/car.gif" height="28" /></a></li>	
+            	<li><a href="#">一淘</a></li>
+            	<li><a href="#">电器城</a></li>
+            	<li><a href="#">嗨淘妆品</a></li>
+            	<li><a href="#">云智能</a></li>
+            	<li><a href="#">特色中国</a></li>
+            </ul>
+			<ul class="main-hd-right">
+            	<li><a href="#"><img src="images/bmw.gif" /></a></li>
+                <li><a href="#" class="lasta">消费者保障</a></li>
+
+            </ul>
+        </div>
+    	<div class="main-bd">
+        	<div  class="main-bd-l">
+            	<div class="banner">
+                	<img src="images/banner.jpg" />
+                    <a href="#" class="arrow-l">
+                    	<i></i>
+                    </a>
+                    <a href="#" class="arrow-r">
+                    	<i></i>
+                    </a>
+                    <ul class="circle">
+                    	<li></li>
+                    	<li class="current"></li>
+                    	<li></li>
+                    	<li></li>
+                    	<li></li>
+                    </ul>
+                </div>
+                <div class="tmall">
+                  	<a href="#" class="arrow-l">
+                    	<i></i>
+                    </a>
+                    <a href="#" class="arrow-r">
+                    	<i></i>
+                    </a>
+                	<div class="tmall-con">
+                    	<a href="#">
+                        	<img  src="images/pic1.png" />
+                        </a>
+                    	<a href="#">
+                        	<img  src="images/pic2.png" />
+                        </a>
+                    	<a href="#">
+                        	<img  src="images/pic3.png" />
+                        </a>
+                    	<a href="#">
+                        	<img  src="images/pic4.png" />
+                        </a>
+                    </div>
+                    
+                     <ul class="circle">
+                    	<li></li>
+                    	<li class="current"></li>
+                    	<li></li>
+                    	<li></li>
+                    	<li></li>
+                    </ul>
+                	<s class="tom"></s>
+                </div>
+            </div>
+        	<div  class="main-bd-c">
+            	<div><a href="#"><img src="images/middle-1.png" /></a></div>
+            	<div><a href="#"><img src="images/middle-2.jpg" /></a></div>
+            </div>
+        	<div  class="main-bd-r">
+            	<div class="notice">
+                	<div class="notice-hd">
+                    	<ul>
+                        	<li  class="current"><a href="#">公告</a></li>
+                        	<li><a href="#">规则</a></li>
+                        	<li><a href="#">论坛</a></li>
+                        	<li><a href="#">安全</a></li>
+                        	<li><a href="#">公益</a></li>
+                        </ul>
+                    </div>
+                    <div class="notice-bd">
+                        <ul style="display:block;">
+                            <li><a href="#">[1212] 当日流量公告</a></li>
+                            <li><a href="#">[1212] 心选大促模块</a></li>
+                            <li><a href="#">[卖家] 大促做好售后</a></li>
+                            <li><a href="#">[1212] 无线详情页</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">[1212] 当日流量规则</a></li>
+                            <li><a href="#">[1212] 心选大促模块</a></li>
+                            <li><a href="#">[卖家] 大促做好售后</a></li>
+                            <li><a href="#">[1212] 无线详情页</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">[1212] 当日流量论坛</a></li>
+                            <li><a href="#">[1212] 心选大促模块</a></li>
+                            <li><a href="#">[卖家] 大促做好售后</a></li>
+                            <li><a href="#">[1212] 无线详情页</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="#">[1212] 当日流量安全</a></li>
+                            <li><a href="#">[1212] 心选大促模块</a></li>
+                            <li><a href="#">[卖家] 大促做好售后</a></li>
+                            <li><a href="#">[1212] 无线详情页</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">[1212] 当日流量公益</a></li>
+                            <li><a href="#">[1212] 心选大促模块</a></li>
+                            <li><a href="#">[卖家] 大促做好售后</a></li>
+                            <li><a href="#">[1212] 无线详情页</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hello">
+                	<div class="hello-bd">
+                    	<a href="#">
+                          <img src="images/test.png" />
+                        hi!你好
+                         </a>
+                         <p>
+                         	<a href="#" class="gold"><s></s>领淘金币抵钱</a>
+                         	<a href="#" class="club">会员俱乐部 </a>
+                         </p>
+                    </div>
+                    <div  class="hello-ft">
+                    	<a href="#" class="login">登录</a>
+                    	<a href="#" class="register">免费注册</a>
+                    	<a href="#" class="open">免费开店 </a>
+                    </div>
+                
+                </div>
+                <div class="service">便民服务</div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

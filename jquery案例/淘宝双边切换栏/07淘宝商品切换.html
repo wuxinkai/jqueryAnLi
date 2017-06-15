@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { width: 298px; height: 250px; border: 1px solid pink; margin: 100px auto; }
+	.con ul { float: left; }
+	.conLeft,.conRight { width:48px; height: 250px; }
+	.conCenter { width: 200px; height: 250px; border-left: 1px solid pink; border-right: 1px solid pink; background: blue; } 
+	.conLeft li,.conRight li { height: 27px; line-height: 27px; width: 48px; border-bottom:1px solid pink; text-align: center; }
+	.conCenter li { display: none; }
+	.conCenter .current { display: block; }
+	.con a { color: #333; text-decoration: none; font-size: 12px; }
+	.conLeft li a,.conRight li a{ display: block; height: 27px; line-height: 27px; width: 48px; }
+	.conLeft li a:hover,.conRight li a:hover { background: url(images/abg.gif) repeat-x; }
+	.con .last { border-bottom: none; }
+</style>
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.conLeft li').mouseover(function(e) {
+            //alert($(this).index());
+			$('.conCenter li').eq($(this).index()).addClass('current').siblings().removeClass('current');
+        });
+		$('.conRight li').mouseover(function(e) {
+           	//alert($(this).index());
+			var myIndex = $(this).index() + 9;
+			//alert(myIndex);
+			$('.conCenter li').eq(myIndex).addClass('current').siblings().removeClass('current');
+        });
+		
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul class="conLeft">
+            <li><a href="#">女靴</a></li>
+            <li><a href="#">雪地靴</a></li>
+            <li><a href="#">冬裙</a></li>
+            <li><a href="#">呢大衣</a></li>
+            <li><a href="#">毛衣</a></li>
+            <li><a href="#">棉服</a></li>
+            <li><a href="#">女裤</a></li>
+            <li><a href="#">羽绒服</a></li>
+            <li class="last"><a href="#">牛仔裤</a></li>
+        </ul>
+    	<ul class="conCenter">
+			<li class="current"><a href="#"><img src="images/女靴.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/雪地靴.jpg" width="200" height="250"/></a></li>
+	        <li><a href="#"><img src="images/冬裙.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/呢大衣.jpg" width="200" height="250"/></a></li>
+	        <li><a href="#"><img src="images/毛衣.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/棉服.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/女裤.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/羽绒服.jpg" width="200" height="250"/></a></li>
+	        <li><a href="#"><img src="images/牛仔裤.jpg" width="200" height="250"/></a></li>
+	        <li><a href="#"><img src="images/女包.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/男包.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/登山鞋.jpg" width="200" height="250"/></a></li>
+	        <li><a href="#"><img src="images/皮带.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/围巾.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/皮衣.jpg" width="200" height="250"  /></a></li>
+	        <li><a href="#"><img src="images/男毛衣.jpg" width="200" height="250"/></a></li>
+	        <li><a href="#"><img src="images/男棉服.jpg" width="200" height="250"/></a></li>
+	        <li><a href="#"><img src="images/男靴.jpg" width="200" height="250" / ></a></li>
+        </ul>
+    	<ul class="conRight">
+			<li><a href="#">女包</a></li>
+	        <li><a href="#">男包</a></li>
+	        <li><a href="#">登山鞋</a></li>
+	        <li><a href="#">皮带</a></li>
+	        <li><a href="#">围巾</a></li>
+	        <li><a href="#">皮衣</a></li>
+	        <li><a href="#">男毛衣</a></li>
+	        <li><a href="#">男棉服</a></li>
+	        <li class="last"><a href="#">男靴</a></li>
+        </ul>
+    </div>
+</body>
+</html>

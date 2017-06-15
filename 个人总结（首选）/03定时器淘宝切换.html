@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { width: 490px; height: 170px; padding: 5px; border:1px solid #ccc; margin: 100px auto; position:relative; }
+	/*img { display: block; }*/
+	.con ul li { width: 490px; height: 170px; /*也可以解决img和li标签的空隙问题*/ display: none; }
+	.con ol { position:absolute; right:10px; bottom: 10px; } 
+	.con ol li { width: 20px; height: 20px; border:1px solid #ccc; background: #fff; float: left; margin: 0 0 0 10px; text-align:center; cursor:pointer; }
+	.con ol .current { background: yellow; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var timer01 = null;
+		var num = 0;//计数器 全局变量 （尽量写在js代码的最上端）
+		var timerFn = function(){//变量要先定义 后使用
+			//alert(num);
+			//1.先控制ol的li来自动切换  
+			//alert(num);
+			num++;//num = num + 1;
+			// 一定要注意极值问题 最大值不能大于4
+			if(num > 4){
+				num = 0;
+			}
+			$('.con ul li').eq(num).stop().hide().fadeIn().siblings().hide();
+			$('.con ol li').eq(num).addClass('current').siblings().removeClass('current');
+		};
+		$('.con ul li').eq(0).css('display','block');//show()
+		$('.con ol li').mouseover(function(e) {//鼠标经过的时候 才会执行里面的代码
+			num = $(this).index();//在鼠标滑过的时候 我们要修改当前的计数器中存储的值 要把它改成当前被滑过的li的索引值
+            $('.con ul li').eq($(this).index()).stop().hide().fadeIn().siblings().hide();
+			$(this).addClass('current').siblings().removeClass('current');
+			
+			//alert(num);
+			
+        });
+		//定时器效果
+		timer01 = setInterval(timerFn,1000);
+		//鼠标进入到con的时候 我们就应该让定时器停止 当鼠标离开盒子的时候 再次开启定时器即可
+		$('.con').hover(function(e) {
+            clearInterval(timer01);
+			timer01 = null;
+        },function(){
+            clearInterval(timer01);//开启定时器之前 一定别忘了 删除之前的那个定时器
+			timer01 = setInterval(timerFn,1000);
+		});
+		
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul>
+        	<li><img src="images/taobao/01.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/02.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/03.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/04.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/05.jpg" width="490" height="170" /></li>
+        </ul>
+        <ol>
+        	<li class="current">1</li>
+        	<li>2</li>
+        	<li>3</li>
+        	<li>4</li>
+        	<li>5</li>
+        </ol>
+    </div>
+</body>
+</html>

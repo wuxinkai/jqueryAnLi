@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * { margin: 0; padding: 0; list-style: none; }
+        .con { width: 600px; border: 1px solid #000; padding: 10px; margin: 100px auto; padding:10px;}
+        .con ul { overflow:hidden; }
+        .con ul li { width: 200px; height: 25px; float:left; text-align:center; }
+        .con .btn { width: 200px; height:22px; line-height: 22px; display:block; border: 1px solid #000; color: #000; text-decoration: none; font-size: 12px; text-align:center; margin: 0 auto; background: url("../image/down.gif") 30px center  no-repeat; }
+
+    </style>
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+           var wu = $('.con ul li:gt(2):not(:last)')
+            wu.hide()
+            $('.btn').click(function(e) {
+                //如果按钮的文字是"显示所有内容"--  那么我们要 1.让按钮的文字变化（隐藏所有内容） 2.//先让刚刚隐藏的那些li 通过slideDown 显示出来 3.//改变图片(up)
+                if($(this).html() == '显示所有内容'){
+                    wu.stop().slideDown();
+                    $(this).css('backgroundImage','url(images/down.gif)').html('隐藏所有内容');
+                }else{
+                    //这个else的条件 是文字内容为“隐藏所有内容”的时候才执行
+                    //那么我们要 1.让按钮的文字变化（隐藏所有内容） 2.//先让刚刚隐藏的那些li 通过slideDown 显示出来 3.//改变图片(up)
+                    wu.stop().slideUp();
+                    $(this).css('backgroundImage','url(images/up.gif)').html('显示所有内容');
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="con">
+    <ul>
+        <li>佳能</li>
+        <li>索尼</li>
+        <li>三星</li>
+        <li>尼康</li>
+        <li>松下</li>
+        <li>卡西欧</li>
+        <li>富士</li>
+        <li>柯达</li>
+        <li>宾得</li>
+        <li>理光</li>
+        <li>奥林巴斯</li>
+        <li>明基</li>
+        <li>其它品牌相机</li>
+    </ul>
+    <a href="javascript:;" class="btn">显示所有内容</a>
+</div>
+</body>
+</html>

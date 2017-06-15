@@ -1,0 +1,21 @@
+@charset "utf-8";
+*{outline: none; }html,body{height:100%;}
+#body{min-height: 100%;height: auto !important; height: 100%; margin: 0 0 -37px;}
+body{margin:0;padding:0; font:14px/22px Arial,"Hiragino Sans GB","微软雅黑","宋体"; color:#333;word-wrap:break-word;}
+.clearfix:after{content: "";height: 0;clear: both;visibility: hidden;}
+.clearfix{display: inline-block;}
+h1,h2,h3,h4,h5{font-weight:normal;}
+/*index content*/
+.content{ width:744px;}
+.content_center{width:744px;margin:100px auto;}
+.da-thumbs {list-style:none;height:118px; position:relative; margin:200px; padding: 0;}
+.da-thumbs li {	float:left;margin-right:8px;background: #fff;position:relative; border:2px solid #fafafa; overflow: hidden;}
+.da-thumbs li.last{margin-right:0;}
+.da-thumbs li a,.da-thumbs li a img {display:block;position:relative;}
+.da-thumbs li a {color:#fff;/*overflow: hidden;*/}
+.da-thumbs li a div {position: absolute;/*background: #333;*/background:rgba(0,179,138,0.9);/**background:#00b38a;background:#00b38a\0;*/filter:alpha(Opacity=90);	width: 100%;height: 100%;}
+.da-thumbs li a .hot_info{display: block; left: 0px; top: -100%; transition: all 300ms ease; -webkit-transition: all 300ms ease;}
+.da-thumbs li a em{display:block;width:100px;height:5px;background:rgba(255,255,255,0.3);/**background:#fff;background:#fff\0;*/filter:alpha(Opacity=30);margin:0 6px;}
+.da-thumbs li a h2{font-size:24px;height:24px;line-height:24px;margin:10px 8px 8px 8px;font-weight:normal;text-align:center;overflow:hidden; }
+.da-thumbs li a p{font-size:12px;margin:6px 8px;line-height:18px;}
+

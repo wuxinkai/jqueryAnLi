@@ -1,0 +1,9 @@
+li {
+	postion:absolute;
+	left:0;
+	top:0;
+}
+
+$('.con ul li').eq(num).stop().fadeIn(speed).siblings().stop().fadeOut(speed);
+
+

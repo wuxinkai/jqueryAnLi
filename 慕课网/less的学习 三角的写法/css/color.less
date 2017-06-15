@@ -1,0 +1,55 @@
+@width:200px;//这就是变量前面加@
+@height:200px;//这就是变量前面加@
+@fuchsia:fuchsia;
+@black:black;  //#f60
+@font: 20px;
+@solid:solid;
+@dashed:dashed;
+//第一个盒子
+.box{
+  width: @width;
+  height: @height;
+  background: @black;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: @height;
+  text-align: center;
+  font-size: @font;
+  .border;
+};//把变量写在括号里面
+//（二）混合变量
+.border{
+  border: dashed 10px pink;
+}
+.border_01(@hunhe){
+  border: @fuchsia @solid @hunhe;
+};
+.border_02(@hunhe:10px){
+  border: @fuchsia solid @hunhe;
+};//两个命名都叫混合是不冲突的一个属于border_01，一个属于boeder_02。
+.radius(@yuanjian:50%){
+  -moz-border-radius: @yuanjian;
+  -webkit-border-radius: @yuanjian;
+  -o-border-radius:@yuanjian;
+  -ms-accelerator: @yuanjian;
+  border-radius: @yuanjian;
+}
+.radius-01(@yuanjian:30%){
+  -moz-border-radius: @yuanjian;
+  -webkit-border-radius: @yuanjian;
+  -o-border-radius:@yuanjian;
+  -ms-accelerator: @yuanjian;
+  border-radius: @yuanjian;
+}
+
+//第二个盒子
+.box1{  .box;  };
+//第三个盒子
+.box2{  .box;  .border_01(30px);}  //让盒子变成
+//第四个盒子
+.box3{  .box;  .border_02()  }
+//第四个
+.box4{  .box;  .border_02();  .radius-01  }
+//第四个
+.box5{  .box;  .border_02();  .radius }

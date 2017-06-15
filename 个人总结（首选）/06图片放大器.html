@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; list-style: none; }
+	ul { margin: 100px; }
+	img { display: block; }
+	ul li { float: left; border:1px solid #ccc; margin: 0 20px 0 0; }
+	div { position:absolute; left: 0px; top: 0px; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('ul li').mouseover(function(e) {
+			var myHref = $(this).children('a').attr('href');
+			
+			//alert(myHref);
+			//alert(myHref);
+            //生成一个div标签 '+myHref+'
+			var myTag = $('<div><img src="'+myHref+'" width="400" height="300" /></div>');
+			$('ul').after(myTag);
+			
+			var eX = e.pageX;
+			var eY = e.pageY;// '+eY+'
+			$('div').hide().show(500).css({'left':''+eX+'px','top':''+eY+'px'});
+			
+        }).mousemove(function(e){
+			var eX = e.pageX + 5;
+			var eY = e.pageY + 5;
+			$('div').css({'left':''+eX+'px','top':''+eY+'px'});
+		}).mouseout(function(){
+			$('div').remove();
+		})
+	})
+</script>
+</head>
+
+<body>
+	<ul>
+    	<li>
+       		<a href="images/apple_3_bigger.jpg" myPath="images/apple_3_bigger.jpg" hehe="这里的东西 可以理解为彩蛋"><img src="images/apple_3.jpg" width="100" height="75" /></a>
+        </li>
+    	<li>
+       		<a href="images/apple_4_bigger.jpg" myPath="images/apple_4_bigger.jpg"><img src="images/apple_4.jpg" width="100" height="75" /></a>
+        </li>
+    	<li>
+       		<a href="images/apple_3_bigger.jpg"><img src="images/apple_3.jpg" width="100" height="75" /></a>
+        </li>
+    	<li>
+       		<a href="images/apple_4_bigger.jpg"><img src="images/apple_4.jpg" width="100" height="75" /></a>
+        </li>
+    	<li>
+       		<a href="images/apple_3_bigger.jpg"><img src="images/apple_3.jpg" width="100" height="75" /></a>
+        </li>
+    	<li>
+       		<a href="images/apple_4_bigger.jpg"><img src="images/apple_4.jpg" width="100" height="75" /></a>
+        </li>
+    </ul>
+    <!--<div><img src="images/apple_3_bigger.jpg" width="400" height="300" /></div>-->
+</body>
+</html>

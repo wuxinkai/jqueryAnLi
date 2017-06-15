@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; }
+	body { height: 3000px; }
+	.ad { position:fixed; right: 0; bottom: 0; margin: 0 0 -120px 0; }
+	.ad button { position:absolute; right: 0; top: 0; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.ad').animate({'margin-bottom':'0px'},500).fadeOut().fadeIn();
+		$('.ad button').click(function(e) {
+            $(this).parent().animate({'marginBottom':'-120px'},500);
+        });
+	})
+</script>
+</head>
+
+<body>
+	<div class="ad">
+    	<button>关闭</button>
+		<img src="images/ad.jpg" width="230" height="120" /> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* { margin:0; padding:0; list-style:none; }
+		img { display:block; }
+	body { /* background-color: #000; */ }
+		ul {
+			width:1000%;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		ul li {
+			float:left;
+			min-height: 600px;
+		}
+		.con ul li a { height: 600px ; float:left;}
+		.hro01 { background-image: url(01.jpg); } 
+		.hro02 { background-image: url(02.jpg); } 
+		.hro03 { background-image: url(03.jpg); } 
+		.con ul li[ class*="hro"]
+		{
+			background-position: 50% 55%;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.con .left,.con .right {
+			display: block;
+			width:32px;
+			height:66px;
+			position:absolute;
+			top:300px;
+			background: url(hero-arrow.png) 0 0 no-repeat;
+		}
+		.con .left { left:100px; }
+		.con .right { right:100px; background: url(hero-arrow.png) -4px -66px no-repeat; }
+		ol {
+			position:absolute;
+			width:200px;
+			height:30px;
+			left:50%;
+			margin-left:-50px;
+			bottom:50px;
+		}
+		ol li {
+			float:left;
+			width:20px;
+			height:20px;
+			border-radius:50%;
+			margin:0 10px;
+			cursor:pointer;
+			background: rgba(0,0,0,0.5);
+		}
+		ol .current { background-color: #fff; }
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var imgKey = 0 ;
+			var olKey = 0 ;
+			var move = 0 ;
+			var wi = 0 ;
+			var tmer = null ;
+			var speed = 1500 ;
+			$('.con ul li').width($(window).width());//给li设置宽度
+			$('.con ul li a').width($(window).width());//给a设置宽度
+			//克隆第一个li 再插在ul li 的最后一个li的后面
+			$('.con ul').append($('.con ul li:eq(0)').clone(true));
+			//鼠标移入 con 事件
+			$('.con').hover(function() {
+				clearInterval(timer);
+				timer = null ;
+			}, function() {
+				timer = setInterval(autoPlay, speed);
+			});
+			//窗口拖动事件
+			$(window).resize(function(event) {
+				wi = $(window).width();
+				$('.con ul li').width(wi);
+				$('.con ul li a').width(wi);
+			});
+			//右箭头事件
+			$('.right').click(function(event) {
+				autoPlay();
+			});
+			//左箭头事件
+			$('.left').click(function(event) {
+				olKey--;
+				if( olKey < 0 ){
+					olKey = 2 ;
+					$('.con ul').css('left',-3*$(window).width());
+				}
+				move = -olKey*$(window).width();
+				$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+				$('.con ul').stop().animate({'left':move},500);
+			});
+			//下面的con ol li 的 事件
+			$('.con ol li').hover(function() {
+				$(this).addClass('current').siblings().removeClass('current');
+				imgKey = $(this).index();
+				move = -imgKey*$(window).width();
+				$('.con ul').stop().animate({'left':move},500);
+			}, function() {
+				$('.con ol li').removeClass('current');
+			});
+			//开启定时器
+			timer = setInterval(autoPlay,speed);
+			function autoPlay(){
+				//ol 遍历
+				olKey++;
+				if( olKey > 2 ){
+					olKey = 0 ;
+				}
+				$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+				//img 遍历
+				imgKey++ ;
+				if( imgKey > 3 ){
+					imgKey = 1 ;
+					$('.con ul').css('left','0');
+				}
+				move = -imgKey*$(window).width();
+				$('.con ul').stop().animate({'left':move},500);
+			}
+		});
+
+
+	</script>
+</head>
+<body>
+	<div class="con">
+		<ul>
+			<li class="hro01"><a href="javascript:;"></a></li>
+			<li class="hro02"><a href="javascript:;"></a></li>
+			<li class="hro03"><a href="javascript:;"></a></li>
+		</ul>
+		<ol>
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+		</ol>
+		<a class="left" href="javascript:;"></a>
+		<a class="right" href="javascript:;"></a>
+	</div>
+</body>
+</html>

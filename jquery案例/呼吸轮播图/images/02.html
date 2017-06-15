@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* { margin:0; padding:0; list-style:none;}
+		.con {
+			width:600px;
+			margin:100px auto;
+		}
+		.conIn {
+			height:200px;
+			position:relative;
+			overflow:hidden;
+			border: 1px solid #ccc;
+			background-color: #000;
+		}
+		.con ul { width:5000%; position: absolute; left:0; top:0;  overflow:hidden;}
+		.con ul li{
+			float:left;
+		}
+		.con ol {
+			position:absolute;
+			right: 10px;
+			bottom:10px;
+		}
+		a {
+			float: left;
+			text-align: center;
+			margin: 20px 5px 0;
+		}
+
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var timer = null ;
+			var speed = 30;
+			var num = 0 ;
+			var gun = 0 ;
+			var move = 0;
+			$('ul').append($('.con ul li:eq(0),.con ul li:eq(1)').clone(true));
+			$('.con ul li').mouseover(function(event) {
+				clearInterval(timer);
+				timer = null ;
+				$(this).siblings().stop().animate({'opacity':'0.3'},500);
+			}).mouseout(function(event) {
+				$(this).siblings().stop().animate({'opacity':'1'},500);
+				timer = setInterval(fun, speed);
+			});
+			timer = setInterval(fun, speed);
+			function fun(){
+				num-=3;
+				if( num < -1200 ){
+					num = 0 ;
+				}
+				$('.con ul').css('left',''+num+'px');
+			}
+			$('.right').click(function(event) {
+				function fun(){
+				num+=3;
+				if( num > 0 ){
+					num = -1200 ;
+				}
+				$('.con ul').css('left',''+num+'px');
+			}
+			});
+			
+		});
+
+	</script>
+</head>
+<body>
+	<div class="con">
+		<div class="conIn">
+			<ul>
+				<li><img src="01.jpg" width='300' height='200' alt="" /></li>
+				<li><img src="02.jpg" width='300' height='200' alt="" /></li>
+				<li><img src="03.jpg" width='300' height='200' alt="" /></li>
+				<li><img src="04.jpg" width='300' height='200' alt="" /></li>
+			</ul>
+		</div>
+		<a class="left" href="javascript:;">left</a>
+		<a class="right" href="javascript:;">right</a>
+	</div>
+</body>
+</html>

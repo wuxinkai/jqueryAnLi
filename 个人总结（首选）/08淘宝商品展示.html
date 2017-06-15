@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { width: 600px; border: 1px solid #000; padding: 10px; margin: 100px auto; padding:10px;}
+	.con ul { overflow:hidden; }
+	.con ul li { width: 200px; height: 25px; float:left; text-align:center; }
+	.con .btn { width: 200px; height:22px; line-height: 22px; display:block; border: 1px solid #000; color: #000; text-decoration: none; font-size: 12px; text-align:center; margin: 0 auto; background: url(images/down.gif) no-repeat 30px center; }
+	
+</style>
+
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//伪代码:我们默认状况下  想让第2个开始的li 隐藏起来
+		var liNormal = $('.con ul li:gt(2):not(:last)');
+		liNormal.hide();
+		//点击事件
+		$('.btn').click(function(e) {
+			//如果按钮的文字是"显示所有内容"--  那么我们要 1.让按钮的文字变化（隐藏所有内容） 2.//先让刚刚隐藏的那些li 通过slideDown 显示出来 3.//改变图片(up)
+			if($(this).html() == '显示所有内容'){
+				liNormal.stop().slideDown();
+				$(this).html('隐藏所有内容').css('backgroundImage','url(images/up.gif)');
+			}else{
+				//这个else的条件 是文字内容为“隐藏所有内容”的时候才执行
+				 //那么我们要 1.让按钮的文字变化（隐藏所有内容） 2.//先让刚刚隐藏的那些li 通过slideDown 显示出来 3.//改变图片(up)
+				liNormal.stop().slideUp();
+				$(this).html('显示所有内容').css('backgroundImage','url(images/down.gif)');
+			}
+        });
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul>
+            <li>佳能</li>
+            <li>索尼</li>
+            <li>三星</li>
+            <li>尼康</li>
+            <li>松下</li>
+            <li>卡西欧</li>
+            <li>富士</li>
+            <li>柯达</li>
+            <li>宾得</li>
+            <li>理光</li>
+            <li>奥林巴斯</li>
+            <li>明基</li>
+            <li>其它品牌相机</li>
+        </ul>
+        <a href="javascript:;" class="btn">显示所有内容</a>
+    </div>
+</body>
+</html>

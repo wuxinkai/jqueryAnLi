@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* { margin:0; padding:0; list-style:none; }
+		img { display:block; }
+		.con {
+			width:800px;
+			height:280px;
+			margin:20px auto;
+			position:relative;
+		}
+		.conIn{
+			width:800px;
+			height:280px;
+			overflow:hidden;
+			position:relative;
+		}
+		.conIn ul {
+			width:1000%;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+		.conIn ul li {
+			float:left;
+		}
+		.bottom {
+			position: absolute;
+			left:0;
+			bottom:0;
+			width:800px;
+			height:20px;
+			background: rgba(0,0,0,0.5);
+		}
+		.bottom ol {
+			position:absolute;
+			right:10px;
+			top:5px;
+
+		}
+		.bottom li {
+			width:20px;
+			height:10px;
+			float:left;
+			margin-left:5px;
+			background-color: #fff;
+			opacity:0.5;
+			cursor:pointer;
+		}
+		.bottom ol .current { opacity:1; }
+		.btn a {
+			width:45px;
+			height:100px;
+			position:absolute;
+			z-index: 33;
+			top:50%;
+			margin-top: -50px;
+			opacity: 0.1;
+			display: none;
+			background: url(img/sprite.png) 0 0 no-repeat;
+		}
+		.btn .left {
+			left:0;
+			background-position: 0 0;
+		}
+		.btn .right {
+			right:0;
+			background-position: -55px 0;
+		}
+		a:hover {
+			opacity: 0.5;
+		}
+
+	</style>
+	<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var imgKey = 0 ;
+			var move = 0 ;
+			var olKey = 0 ;
+			var timer = null ;
+			var speed = 1500;
+			$('.con ul').append($('.con ul li').eq(0).clone(true));//克隆con ul li的第一个li  并插在con ul li 的后面 （append：内部之后插入）
+			//开始定时器
+			timer = setInterval(autoPlay,1500);
+			function autoPlay(){
+				olKey++;
+				if( olKey > 4 ){
+					olKey = 0 ;
+				}
+				$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+				imgKey++;
+				if( imgKey > 5 ){
+					imgKey = 1 ;
+					$('.con ul').css('left','0px');
+				}
+				move = -800*imgKey ;
+				$('.con ul').stop().animate({'left':''+move+'px'},500);
+			}
+			//鼠标移入con 事件			
+			$('.con').hover(function() {
+				$('.btn a').show();
+				clearInterval(timer);
+				timer = null ;
+			}, function() {
+				clearInterval(timer);
+				$('.btn a').hide();
+				timer = setInterval(autoPlay,speed);
+			});
+			//右箭头事件
+			$('.right').click(function(event) {
+				autoPlay();
+			});
+			//左箭头事件
+			$('.left').click(function(event) {
+				//ol遍历
+				olKey--;
+				if( olKey < 0 ){
+					olKey = 4 ;
+				}
+				$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+				//img遍历
+				imgKey--;
+				if( imgKey < 0 ){
+					imgKey = 4 ;
+					$('.con ul').css('left','-4000px');
+				}
+				move = -800*imgKey ;
+				$('.con ul').stop().animate({'left':''+move+'px'},500);
+			});
+			//鼠标移入con ol li 事件
+			$('.con ol li').hover(function() {
+				$(this).addClass('current').siblings().removeClass('current');
+				olKey = $(this).index();
+				$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+				imgKey = $(this).index();
+				move = -800*imgKey ;
+				$('.con ul').stop().animate({'left':''+move+'px'},500);
+			}, function() {
+				$(this).addClass('current').siblings().removeClass('current');
+			});
+		});
+
+
+	</script>
+</head>
+<body>
+	<div class="con">
+		<div class="conIn">
+			<ul>
+				<li><img src="img/01.jpg" width='800' height='280' alt="" /></li>
+				<li><img src="img/02.jpg" width='800' height='280' alt="" /></li>
+				<li><img src="img/03.jpg" width='800' height='280' alt="" /></li>
+				<li><img src="img/04.jpg" width='800' height='280' alt="" /></li>
+				<li><img src="img/05.jpg" width='800' height='280' alt="" /></li>
+			</ul>
+		</div>
+		<div class="bottom">
+			<ol>
+				<li class="current"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+		<div class="btn">
+			<a href="javascript:;" class="left"></a>
+			<a href="javascript:;" class="right"></a>
+		</div>
+		
+	</div>
+</body>
+</html>

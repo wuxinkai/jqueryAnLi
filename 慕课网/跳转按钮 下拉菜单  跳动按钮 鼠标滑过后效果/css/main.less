@@ -1,0 +1,31 @@
+body{
+  background: #eee;
+}
+h1{
+  text-align: center;
+}
+.box{
+  width: 960px;
+  height: 450px;
+  margin: 100px auto;
+  position: relative;
+}
+img{
+  padding: 10px 10px 15px;
+  background: #ffffff;
+  border: 1px solid #dddddd ;
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  -webkit-transform:rotate(20deg) ;/*旋转效果*/
+  -webkit-transition: 2s;/*动画时间*/
+}
+img:hover{-webkit-transform:rotate(0deg);
+  transform: scale(1.2);/*放大1.2倍*/
+  box-shadow: -10px 10px 15px #ccc;/*盒子阴影*/
+  z-index: 100;
+};
+.img-01{ left: 50px}
+.img-02{ left: 190px}
+.img-03{ left: 100px}
+.img-04{ left: 210px}

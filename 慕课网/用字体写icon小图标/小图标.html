@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- 基础样式-->
+    <link rel="stylesheet" href="css/basic.css" type="text/css"/>
+    <!-- 我的样式-->
+    <link rel="stylesheet" href="css/dome.css" type="text/css"/>
+    <!---->
+</head>
+<body>
+    <h1 style="color: red">代码符号添加</h1>
+    <ul class="layout">
+        <!--                     颜色       &#xf是前缀   048是图标编号-->
+        <li><a href=""><i  style="color: #efe0ce;" class="imooc-icon">&#xf048;</i></a></li>
+        <li><a href=""><i style="color: #ef7073;" class="imooc-icon">&#xf04d;</i></a></li>
+        <li><a href=""><i style="color: #78ade3;" class="imooc-icon">&#xe601;</i></a></li>
+        <li><a href=""><i style="color: #eae77f;" class="imooc-icon">&#xe605;</i></a></li>
+        <li><a href=""><i style="color: #3c3c3c;" class="imooc-icon">&#xe604;</i></a></li>
+        <!--                          图标大小 -->
+        <li><a href=""><i style="font-size:30px;" class="imooc-icon">&#xe606;</i></a></li>
+        <li><a href=""><i style="font-size:60px;" class="imooc-icon">&#xe607;</i></a></li>
+        <li><a href=""><i style="font-size:90px;" class="imooc-icon">&#xe60a;</i></a></li>
+        <li><a href=""><i style="font-size:120px;" class="imooc-icon">&#xe60c;</i></a></li>
+        <li><a href=""><i style="font-size:148px;" class="imooc-icon">&#xe60b;</i></a></li>
+    </ul>
+
+    <br/>
+    <br/>
+    <h1>伪元素添加</h1>
+    <br/>
+    <h1 class="icom-music">在元素前面添加图标</h1>
+    <br/>
+    <h1 class="dianying">在元素后面添加</h1>
+
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h1 style="color:red ">用css样式添加图标</h1>
+    <ul class="layout">
+        <li><a href=""><i class="imooc-icon icon-music"></i></a></li>
+        <li><a href=""><i class="imooc-icon dianying"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-pacman"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-feed"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-file"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-paste"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-folder"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-calculate"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-calculate"></i></a></li>
+        <li><a href=""><i class="imooc-icon icon-calculate"></i></a></li>
+    </ul>
+    <br/>
+    <br/>
+    <br/>
+    <ul class="layout3">
+        <li><i class="icon  icon-like shadow"></i></li>
+        <li><i class="icon icon-spinner spinner"></i></li>
+        <li><i class="icon icon-heart love"></i></li>
+    </ul>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(".love").on("click",function(){
+//            把自己先存起来
+            var $this = $(this);
+//            点击自己给自己增加一个class  {添加class后就再下一次点击就不会执行，以为已经添加了class，}
+            $this.addClass("btn-activated")
+//            解决办法{动画结束就删除btn-activated，}
+//            采用定时器删除办法（点击后500毫秒后删除）
+            setTimeout(function(){
+//                   删除
+                $this.removeClass("btn-activated")
+            },500)
+        })
+    </script>
+</body>
+</html>

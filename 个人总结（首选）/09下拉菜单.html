@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{margin:0;padding:0;}
+		ul{list-style: none;}
+		a{color:white; text-decoration: none; font-size: 12px;}
+		#box{width:400px; margin:100px auto;}
+		#box li{ width: 100px; height:30px; line-height: 30px; float: left; background-color: #ccc; text-align: center;}
+		#box li a{ display: block; width: 100px; height: 30px; line-height: 30px; }
+		#box li a:hover{background-color: pink;}
+		#box ul li ul{display: none; }
+	</style>
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+			//简单的显示隐藏效果
+/*			$('#box .demo>li').mouseover(function(e) {
+                //alert(1);
+				$(this).children('ul').show();
+            });
+			$('#box .demo>li').mouseout(function(e) {
+                $(this).children('ul').hide();
+            });*/
+			//滑动显示隐藏效果
+			/*$('#box .demo>li').mouseover(function(e) {
+                //alert(1);
+				$(this).children('ul').stop().slideDown();
+            });
+			$('#box .demo>li').mouseout(function(e) {
+                $(this).children('ul').stop().slideUp();
+            });*/
+			/*$('#box .demo>li').hover(function(e) {
+                $(this).children('ul').stop().slideDown()
+            },function(){
+				$(this).children('ul').stop().slideUp()
+			});
+			*/
+			$('#box .demo>li').hover(function(e) {
+                $(this).children('ul').stop().slideToggle()
+            });
+		})
+    </script>
+</head>
+<body>
+	<div id="box">
+		<ul class="demo">
+			<li id="li01">
+				<a href="#">平面设计</a>
+				<ul id="ul01">
+                    <li><a href="#">平面内容</a></li>
+                    <li><a href="#">平面内容</a></li>
+                    <li><a href="#">平面内容</a></li>
+                    <li><a href="#">平面内容</a></li>
+				</ul>
+			</li>
+			<li id="li02">
+				<a href="#"> 网页设计</a>
+				<ul id="ul02">
+					<li><a href="#">网页内容</a></li>
+					<li><a href="#">网页内容</a></li>
+					<li><a href="#">网页内容</a></li>
+					<li><a href="#">网页内容</a></li>
+				</ul>
+
+			</li>
+			<li id="li03">
+				<a href="#"> SEO优化</a>
+				<ul id="ul03">
+					<li><a href="#">SEO内容</a></li>
+					<li><a href="#">SEO内容</a></li>
+					<li><a href="#">SEO内容</a></li>
+					<li><a href="#">SEO内容</a></li>
+				</ul>
+
+			</li>
+			<li id="li04">
+				<a href="#"> UI设计</a>
+				<ul id="ul04">
+					<li><a href="#">UI内容</a></li>
+					<li><a href="#">UI内容</a></li>
+					<li><a href="#">UI内容</a></li>
+					<li><a href="#">UI内容</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

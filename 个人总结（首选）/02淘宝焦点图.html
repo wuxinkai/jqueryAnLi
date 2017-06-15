@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { width: 490px; height: 170px; padding: 5px; border:1px solid #ccc; margin: 100px auto; position:relative; }
+	/*img { display: block; }*/
+	.con ul li { width: 490px; height: 170px; /*也可以解决img和li标签的空隙问题*/ display: none; }
+	.con ol { position:absolute; right:10px; bottom: 10px; } 
+	.con ol li { width: 20px; height: 20px; border:1px solid #ccc; background: #fff; float: left; margin: 0 0 0 10px; text-align:center; cursor:pointer; }
+	.con ol .current { background: yellow; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.con ul li').eq(0).css('display','block');//show()
+		$('.con ol li').mouseover(function(e) {
+			
+            $('.con ul li').eq($(this).index()).stop().hide().fadeIn().siblings().hide();
+			$(this).addClass('current').siblings().removeClass('current');
+        });
+		
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul>
+        	<li><img src="images/taobao/01.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/02.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/03.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/04.jpg" width="490" height="170" /></li>
+        	<li><img src="images/taobao/05.jpg" width="490" height="170" /></li>
+        </ul>
+        <ol>
+        	<li class="current">1</li>
+        	<li>2</li>
+        	<li>3</li>
+        	<li>4</li>
+        	<li>5</li>
+        </ol>
+    </div>
+</body>
+</html>

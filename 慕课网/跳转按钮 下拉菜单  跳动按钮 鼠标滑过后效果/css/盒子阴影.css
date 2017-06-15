@@ -1,0 +1,185 @@
+.boxwai{
+    float: left;
+    overflow: auto;
+    width: 500px;
+    height: 150px;
+    background: #eeeeee;
+    margin: 100px auto;
+    -webkit-box-shadow: 10px 20px 10px rgba(0,0,0,0.3) inset;/* x y 模糊程度  颜色  内阴影*/
+}
+.boxwai:before{ content:"我是被css3的伪类写在页面中的文字"; width: 450px; height: 150px; background: pink; display: block; border-radius:150px/10px; margin:10px 0 0 10px; }/*after是行内元素，所以要加display*/
+/*鼠标滑过盒子出现阴影*/
+.box-show{ width: 200px; height: 200px;float: left ; margin:50px; cursor: pointer;transition: box-shadow 0.3s ease 0s;}/*盒子阴影鼠标滑过的效果*/
+.box-show:hover{ box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);}
+
+/*公共部分最外盒子*/
+.item{    float: left;
+    width: 190px;
+    height: 190px;
+    margin-top: 15px;
+    margin-right: 15px;
+    border: 1px solid #DDD;
+    overflow: hidden;
+    cursor: pointer;
+
+}
+.item:hover{  border: 1px solid #000;}
+/*第一个半圆旋转*/
+.load_1 .loader {
+    width: 2em;
+    height: 2em;
+    border-width: 10px ;
+    border-style: solid;
+    border-color: #9B59B6  rgba(128, 22, 22, 0);/*border半圆的写法*/
+    border-radius: 50%;
+    margin: 65px auto;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    background: #3498DB none repeat scroll 0% 0% padding-box content-box;/*中心圆的写法,没有占满整个背景*/
+    padding: 0.5em;/*中心圆与半圆的距离。也就是边框与中心的距离，*/
+    /*animation: gogogo 2s infinite alternate;自定义动画*/
+    animation:gogogo 1.5s linear 0s normal none infinite running ;/*无限旋转*/
+}
+/*动画效果1*/
+@-webkit-keyframes gogogo {/*自定义动画*/
+    50% { border-top-color: #3498DB;
+        border-bottom-color: #3498DB;
+        background-color: #2ECC71;}
+    100%{ background: blue;transform: rotate(1turn)}
+}
+/*第二个正方形旋转变化*/
+.load12 .loader01{
+    width: 0.25em;
+    height: 0.25em;
+    text-indent: -9999em;
+    margin: 93px auto;
+    box-shadow: 0.70711em 0.70711em 0px 0em #2ECC71, -0.70711em 0.70711em 0px 0.17678em #9B59B6, -0.70711em -0.70711em 0px 0.25em #3498DB, 0.70711em -0.70711em 0px 0.17678em #F1C40F;
+    animation: 1s ease-in-out 0s normal none infinite running gw, 2.8s linear 0s normal none infinite running rot; /*无限旋转*/
+}
+/*第二个正方形旋转动画*/
+@-webkit-keyframes gw{
+    0% {
+        box-shadow: 0.70711em 0.70711em 0px 0.125em #2ECC71, -0.70711em 0.70711em 0px 0.39017em #9B59B6, -0.70711em -0.70711em 0px 0.5em #3498DB, 0.70711em -0.70711em 0px 0.39017em #F1C40F;
+    }
+    25% {
+        box-shadow: 0.70711em 0.70711em 0px 0.39017em #2ECC71, -0.70711em 0.70711em 0px 0.5em #9B59B6, -0.70711em -0.70711em 0px 0.39017em #3498DB, 0.70711em -0.70711em 0px 0.125em #F1C40F;
+    }
+    50% {
+        box-shadow: 0.70711em 0.70711em 0px 0.5em #2ECC71, -0.70711em 0.70711em 0px 0.39017em #9B59B6, -0.70711em -0.70711em 0px 0.125em #3498DB, 0.70711em -0.70711em 0px 0.39017em #F1C40F;
+    }
+    75% {
+        box-shadow: 0.70711em 0.70711em 0px 0.39017em #2ECC71, -0.70711em 0.70711em 0px 0.125em #9B59B6, -0.70711em -0.70711em 0px 0.39017em #3498DB, 0.70711em -0.70711em 0px 0.5em #F1C40F;
+    }
+    100% {
+        box-shadow: 0.70711em 0.70711em 0px 0.125em #2ECC71, -0.70711em 0.70711em 0px 0.39017em #9B59B6, -0.70711em -0.70711em 0px 0.5em #3498DB, 0.70711em -0.70711em 0px 0.39017em #F1C40F;
+    }
+}
+@-webkit-keyframes rot {
+    100% {
+        /*盒子旋转*/
+        transform: rotate(360deg);
+    }
+}
+/*第三个变化*/
+.load13 .loader02{
+    width: 0px;
+    height: 0px;
+    text-indent: -9999em;
+    margin: 89px auto;
+    box-shadow: -0.625em -0.625em 0px 0.625em #9B59B6, 0.625em -0.625em 0px 0.625em #9B59B6, -0.625em 0.625em 0px 0.625em #9B59B6, 0.625em 0.625em 0px 0.625em #9B59B6;
+    animation: 1.5s ease-in-out 0s normal none infinite running circSquare;
+}
+/*变化动画*/
+@-webkit-keyframes circSquare {
+    50% {
+        width: 1.25em;
+        height: 1.25em;
+        border-radius: 50%;
+        transform: rotate(0.5turn);
+        box-shadow: -2.5em 0px 0px #2ECC71, 2.5em 0px 0px #E74C3C, -2.5em 0px 0px #3498DB, 2.5em 0px 0px #F1C40F;
+    }
+    80%, 100% {
+        transform: rotate(1turn);
+    }
+}
+
+.item_01{height: 190px;
+    margin-top: 15px;
+    border: 1px solid #DDD;
+    cursor: pointer;
+    float: left;
+    width: 190px;
+    margin-right: 15px;
+    overflow: hidden;
+    background: #0dcecb;
+}
+.load1 .loader{
+    text-indent: -9999em;
+    margin: 38% auto;
+    position: relative;
+    font-size: 11px;
+    animation-delay: 0.16s;
+}
+.load1 .loader, .load1 .loader::before, .load1 .loader::after {
+    background: #FFF none repeat scroll 0% 0%;
+    animation: 1.5s ease-in-out 0s normal none infinite running load1;
+    width: 1em;
+    height: 4em;
+}
+@-webkit-keyframes load1{
+    0%, 80%, 100% {
+        box-shadow: 0px 0px #FFF;
+        height: 4em;
+    }
+    40% {
+        box-shadow: 0px -2em #FFF;
+        height: 5em;
+    }
+}
+.load2 .loader{
+    font-size: 11px;
+    text-indent: -99999em;
+    margin: 40px auto;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    box-shadow: 0px 0px 0px 1em #FFF inset;
+}
+
+.load2 .loader::before {
+    height: 10.2em;
+    background: #0DCECB none repeat scroll 0% 0%;
+    border-radius: 10.2em 0px 0px 10.2em;
+    top: -0.1em;
+    left: -0.1em;
+    transform-origin: 5.2em 5.1em 0px;
+   animation: 2s ease 1.2s normal none infinite running load2;
+    width: 5.2em;
+}
+@-webkit-keyframes load2 {
+    0% {  transform: rotate(0deg);  }
+    100% {  transform: rotate(360deg);  }
+}
+
+.load2 .loader::after {
+    width: 5.2em;
+    height: 10.2em;
+    background: #0DCECB none repeat scroll 0% 0%;
+    border-radius: 0px 10.2em 10.2em 0px;
+    top: -0.1em;
+    left: 5.1em;
+    transform-origin: 0px 5.1em 0px;
+    animation: 2s ease 0s normal none infinite running load2;}
+.load2 .loader::before, .load2 .loader::after {
+    position: absolute;
+    content: "";
+}
+@-webkit-keyframes load2 {
+    0% {  transform: rotate(0deg);  }
+    100% {  transform: rotate(360deg);}
+}
+.load2 .loader, .load2 .loader::before, .load2 .loader::after {
+    border-radius: 50%;}

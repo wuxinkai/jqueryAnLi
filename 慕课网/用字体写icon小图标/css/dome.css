@@ -1,0 +1,408 @@
+/*基础样式*/
+.layout{
+    width: 750px;
+    height: 300px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-top: 0;
+    overflow: hidden;
+}
+.layout li{
+    width: 20%;
+    height: 150px;
+    line-height: 150px;
+    float: left;
+    text-align: center;
+}
+.layout li a{
+    background-color: #f4f4f4;
+    color: #888;
+    height: 150px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    /* margin-left: -1px; */
+    display: block;
+}
+.layout li a:hover{
+    background-color: #fff;
+    color: red;
+}
+/*基础样式*/
+
+@font-face {
+    /*自定义名字*/
+    font-family: 'imooc-icon';
+    src: url('../fonts/icomoon.eot');/*兼容ie9*/
+    src: url("../fonts/icomoon.eot?#iefix") format("embedded-opentype")
+        ,url("../fonts/icomoon.woff") format("woff")
+        ,url("../fonts/icomoon.ttf") format("truetype")
+        ,url("../fonts/icomoon.svg") format("svg")
+}
+
+.imooc-icon{
+    font-family: "imooc-icon";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+}
+
+
+
+
+
+/*css3的伪元素添加*/
+/*为元素的应用  只兼容ie8*/
+
+h1{ text-align: center;font-size: 30px;}
+/*在元素前面的里面加内容*/
+.icon-music:before{
+    /*       \e是转译代码*/
+    content: "\e605";
+}
+.dianying:before{
+    content: "\e606";
+}
+.icon-pacman:before{
+    content: "\e607";
+}
+.icon-feed:before{
+    content: "\e608";
+}
+.icon-file:before{
+    content: "\e609";
+}
+.icon-paste:before{
+    content: "\e60a";
+}
+.icon-folder:before{
+    content: "\e60b";
+}
+.icon-calculate:before{
+    content: "\e60c";
+}
+
+
+
+/*css3*/
+.layout3{
+    width: 750px;
+    height: 251px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-top: 0;
+}
+.layout3 li{
+    width: 250px;
+    height: 250px;
+    line-height: 250px;
+    float: left;
+    text-align: center;
+    background-color: #f4f4f4;
+    color: #b13947;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    margin-left: -1px;
+    font-size: 148px;
+}
+@font-face{
+    font-family: "imooc";
+    src: url("../fonts-icon/imooc.eot");/* IE9兼容 */
+    src: url("../fonts-icon/imooc.eot?#iefix") format("embedded-opentype"),
+    url("../fonts-icon/imooc.woff") format("woff"),
+    url("../fonts-icon/imooc.ttf") format("truetype"),
+    url("../fonts-icon/imooc.svg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+/*icon要和对称 layout3*/
+.icon{
+    font-family: "imooc";
+    font-weight: normal;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -o-osx-font-smoothing: grayscale;
+    -ms-osx-font-smoothing: grayscale;
+    font-smoothing: grayscale;
+}
+
+.icon-spinner:before {
+    content: "\e600";
+}
+.icon-heart:after {
+    content: "\e602";
+}
+.icon-heart:before {
+    content: "\e601";
+}
+.icon-like:before {
+    content: "\e603";
+}
+/*第一个盒子白和红相交替*/
+.shadow{
+    color: #fff;
+    /* 图标阴影   水平 垂直偏移                         色值    透明度*/
+    text-shadow: 5px 5px 0px #b13947, 10px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+
+/*第二个盒子无线循环*/
+.spinner{
+    /*浏览器内核         名字   两秒  无线循环  匀速运动*/
+    -webkit-animation: spinner 2s infinite linear;
+    -moz-animation: spinner 2s infinite linear;
+    -ms-animation: spinner 2s infinite linear;
+    -o-animation: spinner 2s infinite linear;
+    animation: spinner 2s infinite linear;
+}
+
+/*谷歌              名字*/
+@-webkit-keyframes spinner {
+    0% {
+        /*开始*/
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        /*结束*/
+        -webkit-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        /*开始*/
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        /*结束*/
+        -webkit-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@-ms-keyframes spinner {
+    0% {
+        /*开始*/
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        /*结束*/
+        -webkit-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@-o-keyframes spinner {
+    0% {
+        /*开始*/
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        /*结束*/
+        -webkit-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+/*正常*/
+@keyframes spinner {
+    0% {
+        /*开始*/
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        /*结束*/
+        -webkit-transform: rotate(359deg);
+        -ms-transform: rotate(359deg);
+        -moz-transform: rotate(359deg);
+        -o-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+/*外层盒子*/
+.love{
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*水平居中*/
+    vertical-align: middle;
+    /*垂直居中*/
+    text-align: center;
+    /*小手形状*/
+    cursor: pointer;
+}
+
+/*插入元素*/
+.love:before,.love:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/*空心圆*/
+.love:after{
+    z-index: 0;
+    color: #cecece;
+    /*当元素不面向屏幕时是否可见。 hidden是不可见  visible  	背面是可见的*/
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/*这是实心红*/
+.love:before{
+    z-index: 1;
+    color: #ea515e;
+    /*          让后面的缩小为 0倍*/
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    /*透明度隐藏*/
+    opacity: 0;
+    /*不要过度效果*/
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    transition: none;
+}
+
+/*效果*/
+.love.btn-activated:before {
+
+    -webkit-animation: scaleFade 0.5s forwards;
+    -moz-animation: scaleFade 0.5s forwards;
+    -ms-animation: scaleFade 0.5s forwards;
+    -o-animation: scaleFade 0.5s forwards;
+    animation: scaleFade 0.5s forwards;
+}
+/*动画效果*/
+@-webkit-keyframes scaleFade {
+     50% {
+         /*百分之50正常显示 */
+         opacity: 1;
+         -webkit-transform: scale(1);
+         -o-transform: scale(1);
+         -ms-transform: scale(1);
+         -moz-transform: scale(1);
+         transform: scale(1);
+     }
+     100% {
+         opacity: 0;
+         -webkit-transform: scale(2.5);
+         -o-transform: scale(2.5);
+         -ms-transform: scale(2.5);
+         -moz-transform: scale(2.5);
+         transform: scale(2.5);
+     }
+ }
+
+@-moz-keyframes scaleFade {
+    50% {
+        /*百分之50正常显示 */
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
+@-ms-keyframes scaleFade {
+    50% {
+        /*百分之50正常显示 */
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
+@-o-keyframes scaleFade {
+    50% {
+        /*百分之50正常显示 */
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}
+@keyframes scaleFade {
+    50% {
+        /*百分之50正常显示 */
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(2.5);
+        -o-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        transform: scale(2.5);
+    }
+}

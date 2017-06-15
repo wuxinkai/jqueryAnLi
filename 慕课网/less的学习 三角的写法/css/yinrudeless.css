@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+.cssYinRu {
+  width: 200px;
+  height: 200px;
+  background: #ff5599;
+  border: #64a8b9 5px solid;
+  margin-top: 20px;
+}
+/* CSS Document */
+.yinru {
+  width: 200px;
+  height: 200px;
+  background: #64a8b9;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  background: #ff6600;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 50px;
+}
+.bg {
+  background: #ff6600;
+}

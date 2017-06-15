@@ -1,0 +1,89 @@
+.box {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: dashed 10px pink;
+}
+.border {
+  border: dashed 10px pink;
+}
+.box1 {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: dashed 10px pink;
+}
+.box2 {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: dashed 10px pink;
+  border: #ff00ff solid 30px;
+}
+.box3 {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: dashed 10px pink;
+  border: #ff00ff solid 10px;
+}
+.box4 {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: dashed 10px pink;
+  border: #ff00ff solid 10px;
+  -moz-border-radius: 30%;
+  -webkit-border-radius: 30%;
+  -o-border-radius: 30%;
+  -ms-accelerator: 30%;
+  border-radius: 30%;
+}
+.box5 {
+  width: 200px;
+  height: 200px;
+  background: #000000;
+  float: left;
+  margin-left: 50px ;
+  color: #ffffff;
+  line-height: 200px;
+  text-align: center;
+  font-size: 20px;
+  border: dashed 10px pink;
+  border: #ff00ff solid 10px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -o-border-radius: 50%;
+  -ms-accelerator: 50%;
+  border-radius: 50%;
+}

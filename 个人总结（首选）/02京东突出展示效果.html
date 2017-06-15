@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { width: 790px; border: 1px solid #000; height: 362px; margin: 100px auto; overflow:hidden; background: #000; }
+	img { display: block;/*cssreset 要加这句话  是为了让img和li之间没有间距*/ }
+	.con ul li { float:left; width: 158px; height: 362px; overflow:hidden; }
+	.con ul li a { display: block; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		
+		$('.con ul li a').hover(function(e) {
+			//改造代码
+			//$(this).parent().parent().parent().find('a').stop().animate({'margin-left':'0px','opacity':'0.5'},500);//改造写法1
+			
+		//改造写法2
+		$(this).closest('.con').find('a').stop().animate({'margin-left':'0px','opacity':'0.5'},500);
+		
+		//$('.con ul li a').stop().animate({'margin-left':'0px','opacity':'0.5'},500);//js 排它操作  控制所有的a标签 恢复成0px的位置(动画效果的恢复)
+            $(this).stop().animate({'marginLeft':'-15px','opacity':'1'},500);
+			
+        },function(){
+			//所有人恢复原状
+			$('.con ul li a').stop().animate({'margin-left':'0px','opacity':'1'},500);//js 排它操作  控制所有的a标签 恢复成0px的位置(动画效果的恢复)
+		});
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul>
+        	<li>
+            	<a href="javascript:;"><img src="images/01.jpg" width="173" height="181" /></a>
+            	<a href="javascript:;"><img src="images/02.jpg" width="173" height="181" /></a>
+            </li>
+            <li><a href="javascript:;"><img src="images/03.jpg" width="173" height="362" /></a></li>
+            <li>
+            	<a href="javascript:;"><img src="images/04.jpg" width="173" height="181" /></a>
+            	<a href="javascript:;"><img src="images/05.jpg" width="173" height="181" /></a>
+            </li>
+            <li><a href="javascript:;"><img src="images/06.jpg" width="173" height="362" /></a></li>
+            <li>
+            	<a href="javascript:;"><img src="images/07.jpg" width="173" height="181" /></a>
+            	<a href="javascript:;"><img src="images/08.jpg" width="173" height="181" /></a>
+            </li>
+        </ul>
+    </div>  
+	<div class="con">
+    	<ul>
+        	<li>
+            	<a href="javascript:;"><img src="images/01.jpg" width="173" height="181" /></a>
+            	<a href="javascript:;"><img src="images/02.jpg" width="173" height="181" /></a>
+            </li>
+            <li><a href="javascript:;"><img src="images/03.jpg" width="173" height="362" /></a></li>
+            <li>
+            	<a href="javascript:;"><img src="images/04.jpg" width="173" height="181" /></a>
+            	<a href="javascript:;"><img src="images/05.jpg" width="173" height="181" /></a>
+            </li>
+            <li><a href="javascript:;"><img src="images/06.jpg" width="173" height="362" /></a></li>
+            <li>
+            	<a href="javascript:;"><img src="images/07.jpg" width="173" height="181" /></a>
+            	<a href="javascript:;"><img src="images/08.jpg" width="173" height="181" /></a>
+            </li>
+        </ul>
+    </div>  
+
+</body>
+
+
+
+
+</html>

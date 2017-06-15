@@ -1,0 +1,194 @@
+@charset "utf-8";
+/* CSS Document */
+/*css reset  css 初始化*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td,button{ margin:0; padding:0; }
+body { font-size:12px; color:#3c3c3c; line-height:24px;}
+fieldset, img { border:0; display:block; /*防止图片底下3像素的空白缝隙 */}
+ol, ul { list-style:none; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; font-weight:normal; /*初始化标题*/}
+em { font-style:normal;/* 让斜体改为正常的*/}
+input, button, select, textarea { border:0; outline:none; /*去掉谷歌 360等表单的蓝色边框*/ } 
+textarea { resize:none;/*防止谷歌等浏览器 textarea 可以拖动*/}
+a { color: #3c3c3c; text-decoration:none; }/*去掉下划线*/
+a:hover { color:#f40;}
+.clearfix:before,.clearfix:after{  /*清除浮动*/
+	display:table;
+	content:"";}
+.clearfix:after{
+	clear:both;}
+.clearfix{zoom:1;}
+.hot{color:#F22E00!important;}
+
+/*----小米清除浮动的办法------*/
+.clearfix:after { content: ""; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-table; }
+*html .clearfix { height: 1%; }
+.clearfix { display: block; }
+*+html .clearfix { min-height: 1%; }
+/*--------------------------隔开线------------------------------------*/
+/*头部开始*/
+.site-nav{ width:100%; height:35px; background-color:#f5f5f5;border-bottom:1px solid #EEE;}
+.site-nav-bd{ width:1190px; height:35px;  margin:0 auto; line-height:35px;}
+.site-nav-bd-l{ float:left; height:35px; }
+.site-nav-bd-r{ float:right; height:35px;}
+.site-nav-bd-l li{float:left; margin-right:20px;}
+.site-nav-bd-r li{float:left;}
+.site-nav-bd-r li span,.site-nav-bd-r li a{float:left;}
+.site-nav-bd-r li .star{ width:12px; height:11px; background:url(../images/star.png) no-repeat; margin:12px 5px;display:inline;}
+.shou a:hover .star{ background-image:url(../images/redstar.png);}
+.site-nav-bd-r li .car{ background-image:url(../images/car.png);}
+.site-nav-bd-r li .grayarr{ margin:16px 8px; width:6px; height:3px; background:url(../images/grayarr.png) no-repeat #f00; overflow:hidden;/* 为了解决ie6最小19像素盒子*/}
+.site-nav-bd-r li .redarr{background-image:url(../images/redarr.png);}
+.site-nav-bd-r li .buy{ background:url(../images/buy.png);}
+.line{ margin:0 10px;}
+.contact{margin:0 5px;}
+
+/*topbanner 开始*/
+.top-banner{ width:100%; height:90px; background:url(../images/site-banner.jpg) no-repeat top center #2C0091; margin-bottom:27px;}
+.top-banner a{ display:block; height:90px;}
+
+.wrap{ width:1190px; margin: 0 auto; height:108px; position:relative; z-index:999; }
+.logo{width:250px; height:95px; float:left;}
+.logo a{ display:block; height:0; background:url(../images/logo.gif) no-repeat; padding-top:95px; overflow:hidden; /*the point of a parise*/}
+
+.erweima{width:78px; height:108px;  float:right; padding:5px 8px; border:1px solid #ccc; position:relative; margin-top:-12px;}
+.erweima p{ text-align:center;} 
+.erweima img{width:80px; height:80px;}
+.close{ width:18px; height:18px; border:1px solid #ccc; position:absolute; top:-1px; left:-20px; cursor:pointer; overflow:hidden; }
+.close s{ display:block; width:13px; height:13px; background:url(../images/sprite.png) no-repeat -153px -363px; margin:2.5px; overflow:hidden;}
+
+.search{width:761px; height:87px;  float:left; padding-top:8px;}
+.search-t{height:25px;}
+.search-t li{width:50px; height:25px;float:left; text-align:center; line-height:25px; cursor:pointer;}
+.search-t li:hover{ background-color:#FFEEE5}
+.search-t li.current{ background-color:#ff5400; font-weight:bold; color:#fff;}
+.search-m{height:40px;}
+.search-m-l{float:left; width:721px; height:40px;}
+.search-m-r{float:right; line-height:18px;}
+.placeholder{float:left; width:621px; height:40px; background-color:#f50;}
+.whitebox{background-color:#fff; height:34px; margin:3px 0 3px 3px; overflow:hidden; width:618px; position:relative;}
+.whitebox input{width:608px; height:34px;line-height:34px; padding-left:10px;}
+.whitebox i{position:absolute; width:10px; height:11px; background:url(../images/fdj.png) no-repeat; left:12px; top:12px;}
+.whitebox label{position:absolute; left:30px; top:5px; color:#9C9C9C; 
+cursor:text;}
+.btn{float:left; width:100px; height:40px; background-color:pink;}
+.btn button{width:100px; height:40px;border:none; background:url(../images/sprite.png) -250px 0 no-repeat; cursor:pointer;}
+.btn button:hover{ background-position:-400px 0;}
+.search-b{padding-top:5px; position:relative;}
+.search-b a{color:#6C6C6C;}
+.search-b a:hover{color:#f40;}
+.more{padding:4px 6px; line-height:14px;border:1px solid #ccc; position:absolute; right:39px;}
+/*cont开始*/
+.cont{width:1190px; height:527px;  margin:0 auto;}
+.subnav{width:186px; height:527px; float:left;}
+.flower{height:36px; background:url(../images/flower.png) no-repeat; margin-top:-36px; position:relative;}
+
+.subnav-hd{height:129px; background-color:#963; background:url(../images/date.png) no-repeat; position:relative;}
+.today{ width:46px; height:53px; position:absolute; background:url(../images/date.png) no-repeat -11px -15px; top:15px; left:11px;}
+.today:hover{ background-position:-383px -15px;}
+.untitle{ width:45px; height:45px; position:absolute; top:15px; left:72px; background:url(../images/date.png) no-repeat -72px -15px;}
+.untitle:hover{ background-position:-444px -15px;}
+.come{ width:46px; height:53px; background:url(../images/date.png) no-repeat -132px -15px; position:absolute; left:132px;top:15px;}
+.come:hover{ background-position:-504px -15px;}
+.subnav-bd{ height:396px; border:2px solid #EE382A; border-top:0; padding:0 6px;}
+.subnav-bd dt{height:23px;padding-top:10px; font-size:14px; font-weight:bold;}
+.subnav-bd dt s{ display:inline-block; width:24px; height:18px; vertical-align:middle; background:url(../images/sprite.png) no-repeat -150px -240px; margin:-6px 8px 0 0 ;}
+.subnav-bd dt .special{ background-position:-150px -216px;}
+.subnav-bd dt .favourable{ background-position:-150px -190px; height:21px;}
+.subnav-bd  dd{line-height:18px; padding:4px 0 10px 5px; font-size:0;border-bottom:1px solid #ccc;}
+.subnav-bd  .lastdd{padding-top:8px; border:0;}
+.subnav-bd  dd a{width:64px; display:inline-block; vertical-align:middle; font-size:12px; position:relative;}
+.subnav-bd  dd a .h{ position:absolute; top:0;width:9px; height:14px; background:url(../images/index.gif) no-repeat;}
+.subnav-bd  dd a.c-3{width:54px; /*三个字*/}
+.subnav-bd  dd a.c-2{width:38px; /*两个字的*/}
+.subnav-bd  dd a.c-7{width:56px; /*特殊4字的*/}
+.subnav-bd  dd a.c-4{width:30px; /*强哥的*/}
+.main{width:990px; height:527px;  float:right;}
+.main-hd{ height:34px; border-bottom:2px solid #f40; margin-bottom:10px;}
+
+.main-hd-left,.main-hd-center{ margin-top:4px; float:left;}
+.main-hd-left li,.main-hd-center li{float:left; margin:0 13px; display:inline;}
+.main-hd-left li a{font-size:16px; color:#f40; font-weight:bold; width:52px; height:28px; line-height:28px; text-align:center; display:block;}
+.main-hd-left li a:hover{ background-color:#f4f4f4;}
+.main-hd-center li a{ font-size:14px; font-weight:bold; height:28px; line-height:28px; padding:0 5px; float:left;}
+.main-hd-center li a.nopadding{padding:0;}
+.main-hd-center li{ margin:0 10px;}
+.main-hd-center .pipe{color:#ccc;}
+.main-hd-center li a:hover{ background-color:#f4f4f4;}
+.main-hd-right{float:right;}
+.main-hd-right img{margin-top:-2px;}
+.main-hd-right li{float:left;}
+.main-hd-right li a.lasta{font-size:12px; font-weight:bold; padding-top:14px; display:inline-block; margin-left:20px;}
+.main-bd{ height:481px;}
+.main-bd-l{height:481px; width:521px; float:left;}
+.banner{height:280px;  position:relative;}
+.arrow-l,.arrow-r{width:40px; height:40px; background-color:rgba(0,0,0,0.3); position:absolute; top:120px; }
+.arrow-l{left:5px;}
+.arrow-r{right:5px;}
+.main-bd-l i{display:block; width:16px; height:25px; background:url(../images/sprite.png) no-repeat;margin:7px 0 0 12px;}
+.arrow-l i{ background-position:-150px -333px; }
+.arrow-r i{ background-position:-150px -308px;}
+.circle{ position:absolute;  left:50%; margin-left:-30px; bottom:10px; overflow:hidden; padding:2px 5px; background-color:rgba(255,255,255,0.3); border-radius:10px;}
+.circle li{float:left; width:9px; height:9px; background-color:#B7B7B7; margin:2px; overflow:hidden; border-radius:50%; /*可以让正方形变成圆*/ cursor:pointer;}
+.circle li.current{background-color:#f40; }
+.tmall{ height:198px;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8; width:520px; overflow:hidden; position:relative;}
+.tmall-con{width:525px;}
+.tmall-con a{ float:left; border-right:1px solid #e8e8e8;}
+.tom{position:absolute; width:32px; height:11px; left:50%; margin-left:-16px; background:url(../images/sprite.png) no-repeat -100px -165px; bottom:0; overflow:hidden;}
+.main-bd-c{height:481px; width:170px;  float:left;}
+.main-bd-r{height:481px; width:290px; float:right;}
+.notice{height:98px;border:1px solid #e8e8e8; width:288px;/* 291 减去左右两个边框的宽度*/overflow:hidden;}
+.notice-hd{height:26px;}
+.notice-hd ul{ width:301px; margin-left:-1px;}
+.notice-hd li{ float:left; width:56px; height:26px; background-color:#f7f7f7; padding:0 1px; border-bottom:1px solid #e8e8e8; text-align:center; line-height:26px;}
+.notice-hd li.current{  border-left:1px solid #e8e8e8; border-right:1px solid #e8e8e8; padding:0; background-color:#fff; border-bottom:1px solid #fff;font-weight:bold;}
+.notice-bd{padding:13px 0 0 10px;}
+.notice-bd ul{display: none;}
+.notice-bd li{float:left;  width:134px;}
+.hello{ height:115px; border:1px solid #ddd; margin-top:-1px; background:url(../images/index.png) no-repeat right top; padding:5px 0 0 10px;}
+.hello-bd{padding-left:70px; position:relative; overflow:hidden; height:60px;}
+.hello-bd img{ width:60px; height:60px; background:url(../images/sprite.png) no-repeat -150px -80px; position:absolute; top:0; left:0;_left:-70px;} 
+.hello-bd p{ background-color:#030;}
+.gold,.club{float:left; height:28px; border:1px solid #FDB08E; border-radius:3px;
+background-color:#FFF0E8; line-height:28px;padding:0 6px; margin-left:3px; white-space:nowrap;}
+.gold s{display:inline-block; vertical-align:middle;width:18px; height:18px; background:url(../images/sprite.png) no-repeat -150px -290px; margin-right:4px;}
+.hello-ft{ margin-top:10px;}
+.hello-ft a{ display:inline-block; height:35px; border-radius:3px; background-color:#f40; width:75px; text-align:center; line-height:35px; color:#fff;}
+.hello-ft a:hover{color:#fff;}
+.hello-ft .login{ width:100px;}
+
+.hello-ft a:hover{ background-color:#F22D00}
+.service{ height:259px; background-color:#f4f4f4; border:1px solid #e8e8e8;margin-top:-1px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+body{
+     margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.conIn{
+     width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family:"josefin slab","Myriad pro", Arial sans-serif;
+     background-color: #999999;
+}
+
+.conIn>input,
+.conIn>a{
+     width: 20%;
+    height: 34px;
+     line-height: 34px;
+    position: fixed;
+    bottom: 0px;
+}
+.conIn>input{
+    z-index: 1000;
+    opacity: 0;
+}
+.conIn input:checked +a{
+    background: #821134;
+/*ie的专属命令，控制图片缩放是失真*/
+img { -ms-interpolation-mode: bicubic; }
+}/*给选中元素加特殊样式*/
+.conIn input:checked +a:after{
+    content: "";
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border: 20px solid transparent;
+    border-bottom-color: #821134;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -20px;
+}
+.conIn input:hover + a{
+    background: #aD244f;
+}
+.conIn>a{
+    z-index: 10;
+    font-weight: 700;
+     font-size: 16px;
+    background: #e23a6e;
+     text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+#st-con-1,#st-con-1 + a{
+     left: 0%;
+ }
+#st-con-2,#st-con-2 + a{
+    left: 20%;
+}
+#st-con-3,#st-con-3 + a{
+     left: 40%;
+}
+#st-con-4,#st-con-4 + a{
+      left: 60%;
+}
+#st-con-5,#st-con-5 + a{
+       left: 80%;
+    }
+
+.st-scroll,
+.st-panel{
+    width: 100%;
+    height: 100%;
+
+}
+.st-scroll{
+     left: 0;
+    top: 0;
+     -webkit-transform:translate3d(0,0,0) ;
+     -webkit-backface-visibility: hidden;/*背向屏幕的时候是否可见hidden是不可见，Visible是可见*/
+}
+
+

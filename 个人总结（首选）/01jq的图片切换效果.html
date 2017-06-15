@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; list-style:none; }
+	.con { margin: 100px auto; width: 650px; height: 250px; position:relative; overflow:hidden; }
+	.con ul { position:absolute; z-index: 1; }
+	.con ul li { position:absolute; }
+	.con ol { position:absolute; right: 10px; bottom: 10px; z-index: 2; }
+	.con ol li { width: 20px; height: 20px; border:1px solid #fff; float:left; margin: 0 0 0 5px; text-align:center; background: #333; color: #999; cursor: pointer; }
+	.con ol .current { color: #ff6600; border:1px solid #ff6600; font-weight: bold; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var myZindex = 0;//全局变量：可以被任何人修改和获取
+		$('.con ul li:first').css('z-index','1');
+		$('.con ol li').click(function(e) {
+			myZindex++;//这句话的意思是 让myZindex加一   myZindex = myZindex +1;
+            $(this).addClass('current').siblings().removeClass('current');
+			//伪代码： 当ol的li被点击的时候 我们要控制的是想对应的ul的li去变化；先让ul的那个li的css 控制left属性变为650px（先一瞬间让图片放在右侧的位置），再控制animate，left属性变回0px即可实现效果
+			//alert($(this).index());
+			$('.con ul li').eq($(this).index()).css({'left':'650px','z-index':myZindex}).animate({'left':'0px'},500);
+			
+			
+/*			例： 
+			初级  a：5000  b 6000 c7000
+			中级  a：8000 b 9000 c 10000
+			高级  a：11000 b 12000 c 13000*/
+        });	
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul>
+        	<li><img src="images/img/01.jpg" width="650" height="250" /></li>
+        	<li><img src="images/img/02.jpg" width="650" height="250" /></li>
+        	<li><img src="images/img/03.jpg" width="650" height="250" /></li>
+        	<li><img src="images/img/04.jpg" width="650" height="250" /></li>
+        	<li><img src="images/img/05.jpg" width="650" height="250" /></li>
+        </ul>
+        <ol>
+        	<li class="current">1</li>
+        	<li>2</li>
+        	<li>3</li>
+        	<li>4</li>
+        	<li>5</li>
+        </ol>
+    </div>
+</body>
+</html>

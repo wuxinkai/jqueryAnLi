@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { width: 400px; height: 307px; border:5px solid #ccc; margin: 100px auto; position: relative; }
+	.conIn ul { width: 2000px; position:absolute; }
+	.conIn { width: 400px; height: 307px; overflow:hidden; position:relative; }
+	.conIn ul li { float: left; width: 400px; height: 307px; }
+	.left,.right { width: 52px; height: 52px; position: absolute; top: 50%; margin: -26px 0 0 0; background: url(images/arr.png) no-repeat 0 0; }
+	.left { left: -21px; }
+	.right { background-position: -52px 0; right: -21px; }
+	.con ol { overflow: hidden; width: 80px; margin: 20px auto; }
+	.con ol li { width: 13px; height: 13px; background:url(images/00.png) no-repeat 0 0; float:left; margin: 0 5px 0 0; cursor:pointer; }
+	.con ol .current { background-position: 0 -26px; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//思路很重要 先要想好这个案例里面需要我们做的事情 
+		//1.左右按钮点击可以切换 2.定时器可以切换 3.点击ol的li也可以切换
+		//1.1右按钮和定时器的代码一样 1.2左按钮单独控制
+		//1.1.1 我们需要两个全局变量才能做无缝滚动效果，变量1：控制ol的索引值 变量2：控制ul的li的索引值（因为无缝滚动需要“临时工” 所以ul的li要多一个）1.1.2控制极值(olKey的最大是3 imgKey最大值是4)
+		//1.2.1 左按钮的极值点是0 ，但是要恢复的位置是-1600px、imgKey = 3;//因为最后一张图是临时工 我们不能把它算进去 所以最后应该用3去判断最后一个值
+		//2.1定时器 只要写成跟右按钮一样的代码即可， 既然是代码一样 我们可以设置变量去存储
+		//3.1 ol的li被点击的时候 别忘了控制全局变量的两个值都变成$(this).index(),因为4个ol的li对应五个ul的li不会出现bug 
+		
+		
+		
+		
+		//先把第一个li克隆并且放在ul的最后
+		$('.con ul').append($('.con ul li:eq(0)').clone(true));
+		var olKey = 0;//代表ol的index值
+		var imgKey = 0;//代表图片的索引值
+		var move;
+		var timer = null;
+		var autoPlay = function(){
+            //1.先控制ol的li切换
+			olKey++;
+			//加完之后 再判断极值问题   
+			if(olKey > 3){
+				olKey = 0;
+			}
+			$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+			
+			//2.控制ul的li切换
+			imgKey++;
+			if(imgKey > 4){
+				imgKey = 1;//现在的图片多了一张 在极值的时候 要恢复到的是编号为1的那张图的位置才是正确的、
+				$('.con ul').css('left','0px');
+			}			move = imgKey * -400;//  '+move+'  这里是移动的距离
+			$('.con ul').animate({'left':''+move+'px'},500);
+		}
+		timer = setInterval(function(){
+			autoPlay();//因为定时器和右按钮实现的是一样的代码 所以我们可以定义变量 去存储
+		},91000)
+
+		//右按钮点击
+		$('.con .right').click(function(e) {
+			autoPlay();
+        });	
+		$('.con').hover(function(e) {
+			//鼠标移入con的时候要停止定时器 
+			clearInterval(timer);
+			timer = null;
+        },function(){
+			//鼠标离开要开启定时器 在这之前要先清除之前的
+			clearInterval(timer);
+			timer = setInterval(function(){
+				autoPlay();//因为定时器和右按钮实现的是一样的代码 所以我们可以定义变量 去存储
+			},1000);
+		});
+		
+		//点击ol的li触发切换效果
+		$('.con ol li').click(function(e) {
+			imgKey = $(this).index();//已经把关键的索引值 替换了这两个全局变量了
+			olKey = $(this).index();
+			move = imgKey * -400;//'+move+'
+            $('.con ul').animate({'left':''+move+'px'},500);
+			$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+        });
+		//左按钮
+		$('.con .left').click(function(e) {
+            olKey--;
+			if(olKey < 0){
+				olKey = 3;
+			}
+			$('.con ol li').eq(olKey).addClass('current').siblings().removeClass('current');
+			//ul的位置
+			imgKey--;
+			if(imgKey < 0){
+				imgKey = 3;//因为最后一张图是临时工 我们不能把它算进去 所以最后应该用3去判断最后一个值
+				$('.con ul').css('left','-1600px');	
+			}
+			move = imgKey * -400;
+			$('.con ul').animate({'left':''+move+'px'},500);
+        });
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<div class="conIn">
+        	<ul>
+            	<li><img src="images/01.jpg" width="400" height="307" /></li>
+            	<li><img src="images/02.jpg" width="400" height="307" /></li>
+            	<li><img src="images/03.jpg" width="400" height="307" /></li>
+            	<li><img src="images/04.jpg" width="400" height="307" /></li>
+            </ul>
+        </div>
+        <ol>
+        	<li class="current"></li>
+        	<li></li>
+        	<li></li>
+        	<li></li>
+        </ol>
+        <a href="javascript:;" class="left"></a>
+        <a href="javascript:;" class="right"></a>
+    </div>
+</body>
+</html>

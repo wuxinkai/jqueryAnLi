@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button').eq(0).click(function(e) {
+			var inpVal = $('input').val();/*这句话要写在按钮的里面，判断的上面*/
+			if(inpVal ==''){
+				alert('请输入文字')
+			}else{
+			//alert($('input').val());
+           	var myTag = $('<li>' + inpVal + '</li>');
+			$('ul').prepend(myTag);
+			$('input').val('');//清空
+			}
+        });	
+	})
+</script>
+</head>
+
+<body>
+	发布新闻：<input type="text" value="" /><br />
+    <button>发布按钮</button>
+    
+    <ul>
+    </ul>
+</body>
+</html>

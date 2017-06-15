@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="content">
+    <div id="show">
+        显示当前时间：
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function() {
+//        调用底下的函数
+        showTime();
+    };
+//    秒数小于十秒前面加零
+    function checkTime(i){
+//        小于0执行下面的代码i = "0" + i  ;  不小于0就执行 i
+        if(i<10) {
+            i = "0" + i
+        }
+        return i;
+    }
+    function showTime(){
+//        先声明
+        var myDate = new Date();
+//        年
+        var myyear = myDate.getFullYear();
+//        月份
+        var mymonth = myDate.getMonth() + 1;
+//        日期
+        var date = myDate.getDate();
+//        星期几
+        var d = myDate.getDay();
+        var weekday = new Array(7);
+        weekday[1] = "星期一";
+        weekday[2] = "星期二";
+        weekday[3] = "星期三";
+        weekday[4] = "星期四";
+        weekday[5] = "星期五";
+        weekday[6] = "星期六";
+        weekday[0] = "星期日";
+//        小时
+        var h = myDate.getHours();
+//        分钟
+        var m = myDate.getMinutes();
+//       检测是否小于10（分钟）
+        m = checkTime(m);
+//        秒数
+        var s = myDate.getSeconds();
+//        检测是否小于10（秒）
+        s = checkTime(s);
+//        输出
+        document.getElementById('show').innerHTML = myyear + '年' + mymonth + '月' + date+'日' + weekday[d]+ ':' + h + ':' + m + ':' + s;
+//       定时器循环  每隔500毫秒执行一次，否则  秒数不会自己动
+        setTimeout(showTime, 500)
+
+
+    }
+
+</script>
+
+</body>
+</html>
+
+
+
+

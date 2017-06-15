@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; list-style: none; }
+	.main { width: 1000px; margin: 0 auto; overflow:hidden; }
+	.navFlow { position:fixed; left: 50%; width: 36px; height: 164px; margin: 0 0 0 500px; bottom: 30px; }
+	.navFlow ul li { width: 34px; height: 34px; border:1px solid #ccc; margin: 5px 0 0 0; background: url(images/bg.png) no-repeat 0 0; }
+	.navFlow ul li a { display: block; width: 34px; height: 34px; }
+	.navFlow ul .current { border:1px solid #ED5759; background: pink; }
+	.navFlow ul .current a { width: 28px; height: 30px; text-decoration:none; font-size: 12px; color: #ED5759; padding: 0px 0 0 6px; 	}
+	
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	//$(function(){//在页面元素都加载完成就会执行js代码    window.onload 所有页面元素（图片和css代码）都执行完毕才运行js
+		window.onload = function(){
+
+		//页面加载完成后 就让ul的li每一个都控制好background-position属性
+		var pos = 0
+//		$('.navFlow ul li').each(function(index, element) {
+//			pos = index * -55;//'+pos+'
+//            $(element).css('background-position','0 '+pos+'px');
+//        });
+		//鼠标滑过li标签控制文字内容
+//		$('.navFlow ul li').hover(function(e) {
+//            //给被滑过的那个li 加特殊类名
+//			$(this).addClass('current').siblings().removeClass('current');
+//
+//			//给被滑过的li的儿子a标签设置html文字内容
+//			//alert($(this).attr('myName'));
+//			$(this).parent().find('a').html('');
+//			$(this).children('a').html($(this).attr('myName'));
+//        },function(){
+//			//把所有的li都恢复没有特殊类名的状态  把所有a标签清空
+//			$(this).parent().children('li').removeClass('current');
+//			$(this).children('a').html('');
+//			//在鼠标离开的时候 我们要再次判断滚动距离和img的第几个之间的关联
+////			myFn02();
+//		});
+
+
+//		function myFn02(){
+//			sT = $(window).scrollTop();
+//			if(sT >= $('.jump').eq(3).offset().top){
+//				console.log(3);
+//				myFn(3);
+//			}else if(sT >= $('.jump').eq(2).offset().top){
+//				console.log(2);
+//				myFn(2);
+//			}else if(sT >= $('.jump').eq(1).offset().top){
+//				console.log(1);
+//				myFn(1);
+//			}else if(sT >= $('.jump').eq(0).offset().top){
+//				console.log(0);
+//				myFn(0);
+//			}else {
+//				$('.navFlow').hide();//如果条件都不满足的情况下 让电梯隐藏
+//			}
+//		}
+
+
+
+		//鼠标点击电梯导航 实现移动效果
+
+
+/*		console.log($('.jump').eq(0).offset().top);
+		console.log($('.jump').eq(1).offset().top);
+		console.log($('.jump').eq(2).offset().top);
+		console.log($('.jump').eq(3).offset().top);
+*/
+		$('.navFlow ul li').click(function(e) {
+			var junpVal;
+			junpVal = $('.jump').eq($(this).index()).offset().top; //  '+junpVal+'
+			console.log(junpVal)
+            $('body,html').animate({'scrollTop':''+junpVal+'px'},500);
+        });
+
+		//这里是判断滚动条滚动的事件
+		var sT;//这个变量存的是 滚动条的垂直距离
+//		$(window).scroll(function(e) {
+//            //伪代码  如果滚动的距离大于img的第0个的时候 才会让电梯出现 并且让第0个li添加特殊类名 并且 把文字添加进去
+//			myFn02();
+//		});
+
+		//自定义方法来简化代码
+		//1.找相似
+//		function myFn(par1){
+//			$('.navFlow').show();
+//			$('.navFlow ul li').eq(par1).addClass('current').siblings().removeClass('current');
+//			$('.navFlow ul li a').html('');//先清空所有的a中的文字
+//			$('.navFlow ul li').eq(par1).children('a').html($('.navFlow ul li').eq(par1).attr('myName'));
+//		}
+
+
+		
+	}//这个是js版入口函数的结束
+		
+		
+	//})//这个是jq版入口函数的结束
+</script>
+</head>
+
+<body>
+	<div class="navFlow">
+    	<ul>
+        	<li myName="家电通信"><a href="javascript:;"></a></li>
+        	<li myName="数码电脑"><a href="javascript:;"></a></li>
+        	<li myName="服饰鞋包"><a href="javascript:;"></a></li>
+        	<li myName="美容珠宝"><a href="javascript:;"></a></li>
+        </ul>
+    </div>
+    <div class="main">
+		<img src="images/jd_r1_c1.png"/>
+		<img src="images/jd_r2_c1.png" class="jump"/><!--0-->
+		<img src="images/jd_r3_c1.png" class="jump"/><!--1-->
+		<img src="images/jd_r4_c1.png" class="jump"/><!--2-->
+		<img src="images/jd_r5_c1.png" class="jump"/><!--3-->
+	</div>
+</body>
+</html>

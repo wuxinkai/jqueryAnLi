@@ -1,0 +1,32 @@
+/*必须在谷歌演示*/
+.container{
+    -webkit-column-width:202px;
+    -moz-column-width:202px;
+    -ms-column-width:202px;
+    -o-column-width:202px;
+    column-width:202px;
+    /*一行显示多少列  6列*/
+         /*-webkit-column-count: 6;*/
+    /*盒子和盒子之间加2px 的  虚线*/
+        /*-webkit-column-rule: 2px dashed #f00;*/
+}
+.box{
+    /*设置每一列的列宽*/
+    padding: 10px 0 0 15px;
+}
+
+
+/*数据块 砖块*/
+.box .pic{
+    width:165px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #ccc;
+    padding: 10px;
+}
+.box .pic img{
+    display: block;
+    width: 160px;
+    height:auto;
+
+}

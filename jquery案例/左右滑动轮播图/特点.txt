@@ -1,0 +1,12 @@
+ul {
+	width:1000%;
+	position:absolute;
+	left:0;
+	top:0;
+}
+ul li {
+	float:left;
+}
+
+ move = -800*imgKey ;
+ $('.con ul').stop().animate({'left':''+move+'px'},speed);

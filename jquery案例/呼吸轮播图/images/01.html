@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		* { margin:0; padding:0;list-style:none; }
+		img { display:block; }
+		.con {
+			width:490px;
+			height:170px;
+			padding:5px;
+			margin:100px auto;
+			border: 1px solid #ccc;
+			position:relative;
+		}
+		.con ul {
+		}
+		.con ul li {
+			display: none;
+			position:absolute;
+			
+		}
+		.con ol {
+			position:absolute;
+			right:0px;
+			bottom:10px;
+		}
+		.con ol li {
+			float:left;
+			width:20px;
+			height:20px;
+			margin:0 5px;
+			line-height:20px;
+			background-color: #333;
+			border: 1px solid #ccc;
+			color:#fff;
+			text-align: center;
+			cursor:pointer;
+		}
+		.con ol .current {
+			background-color: #ff0;
+		}
+
+
+
+	</style>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var timer = null ;
+			var speed = 3000;
+			var num = 0 ; 
+			var funTimer = function(){
+				$('.con ul li').stop().fadeOut(500);
+				num++;
+				if( num > 4 ){
+					num = 0 ;
+				}
+				$('.con ol li').eq(num).addClass('current').siblings().removeClass('current');
+				$('.con ul li').eq(num).stop().fadeIn(500).siblings().stop().fadeOut(500);
+			}
+			timer = setInterval(funTimer, speed)
+			$('.con ul li').eq(0).show();
+			$('.con ol li').hover(function() {
+				$('.con ol li').eq($(this).index()).addClass('current').siblings().removeClass('current');
+				$('.con ul li').eq($(this).index()).stop().fadeIn(500).siblings().stop().fadeOut(500);
+			});
+
+		});
+
+
+	</script>
+</head>
+<body>
+	<div class="con">
+		<ul>
+			<li><img src="taobao/01.jpg" alt="" width='490' height='170' /></li>
+			<li><img src="taobao/02.jpg" alt="" width='490' height='170' /></li>
+			<li><img src="taobao/03.jpg" alt="" width='490' height='170' /></li>
+			<li><img src="taobao/04.jpg" alt="" width='490' height='170' /></li>
+			<li><img src="taobao/05.jpg" alt="" width='490' height='170' /></li>
+		</ul>
+		<ol>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ol>
+	</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/xialacaidan.css" type="text/css"/>
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../js/xialacaidan.js"></script>
+
+</head>
+<body>
+    <div class="nav">
+        <ul class="nav_ul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">列表页</a>
+                <ul class="nul_ul">
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">jquery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">详情页</a></li>
+            <li><a href="#">其它页</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+<!--第二种下拉菜单-->
+    <ul class="nt_ul">
+        <li><a href="#">首页<span>shouye</span></a></li>
+        <li><a href="#">课程大厅<span>kecheng</span></a></li>
+        <li><a href="#">学习中心<span>xuexi</span></a></li>
+        <li><a href="#">关于我们<span>women</span></a></li>
+    </ul>
+<!--三级菜单-->
+    <ul class="nav_three">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">课程大厅 +</a>
+            <ul class="ne_li01_ul">
+                <li><a href="#">前端课程</a></li>
+                <li><a href="#">手机开发</a></li>
+                <li><a href="#">后台变成 +</a>
+                    <ul class="sanjicaidan">
+                        <li><a href="#">出现吧</a></li>
+                        <li><a href="#">出现吧</a></li>
+                        <li><a href="#">出现吧</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">学习中心</a></li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+<!--第四个动画下拉菜单-->
+    <div class="navFour">
+        <ul class="navF_ul">
+            <li><a href="#" class="nf_current">首页</a></li>
+            <li><a href="#">列表页 +</a>
+                <ul class="nulF_ul">
+                    <li><a href="#">javascript</a></li>
+                    <li><a href="#">jquery</a></li>
+                </ul>
+            </li>
+            <li><a href="#">详情页</a></li>
+            <li><a href="#">其它页</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+<!--三角形-->
+    <div class="triangle"></div>
+<!--第五个下拉菜单-->
+    <div class="navlist" id="menulist"><!--一级菜单的最外层-->
+        <a href="#">首页</a>
+        <a href="#">课程大厅</a>
+        <a href="#">学习中心</a>
+        <a href="#">关于我们</a>
+        <a href="#">其他</a>
+    </div>
+    <div class="expand id="expandzone"><!--二级菜单的最外层-->
+        <div class="expdiv"><!--二级菜单的包裹层-->
+            <div class="expdivlist">
+                <a href="#">慕课网主页</a>
+            </div>
+            <div class="expdivlist">
+                <a href="#">慕课网</a>
+                <a href="#">慕课网</a>
+                <a href="#">慕课网</a>
+            </div>
+            <div class="expdivlist">
+                <a href="#">慕课网内容</a>
+                <a href="#">慕课网内容</a>
+                <a href="#">慕课网内容</a>
+                <a href="#">慕课网内容</a>
+            </div>
+            <div class="expdivlist">
+                <a href="#">div</a>
+                <a href="#">div</a>
+                <a href="#">div</a>
+            </div>
+            <div class="expdivlist">
+                <a href="#">公司地址</a>
+            </div>
+        </div>
+        <div class="colseBtn" id="close_btn">按钮</div>
+    </div>
+</body>
+</html>

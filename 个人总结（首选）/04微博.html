@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { width: 598px; border: 1px solid #000; margin: 50px auto; padding: 10px; }
+	.con textarea { width: 460px; height: 160px; resize: none; }
+	.con ul { width: 500px; margin: 0 auto; }
+	.con ul li { line-height: 32px; border-bottom: 1px dashed #ccc; word-break:break-all; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('button').click(function(){
+			//alert($('textarea').val());
+
+			
+			
+			var txtVal = $('textarea').val();//   ' + txtVal + '
+			
+			if(txtVal == ''){
+				alert('请输入文字后再发送');
+			}else if(txtVal.length > 20){//length 在此处可以判断 文字的个数
+				alert('我的微博系统，每次发送的文字不能超过20个');
+			}else{
+				var myTag = $('<li>' + txtVal + '</li>');
+				$('ul').prepend(myTag);
+				$('ul li').eq(0).hide().slideDown();
+				
+				$('textarea').val('');//这里为了用户体验 点击按钮之后 就把textarea内容清空
+			}
+		})
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	微博内容： <textarea></textarea>&nbsp;&nbsp;<button>发布</button>
+        <ul>
+			
+    	</ul>
+    </div>
+    
+</body>
+</html>

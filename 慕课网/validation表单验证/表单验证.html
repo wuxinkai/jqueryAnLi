@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body>
+    <form id="demoForm">
+        <fieldset>
+            <legend>用户登录</legend>
+            <p id="info"></p>
+            <p id="info2" style="display: none">输入错误</p>
+            <p>
+                <label for="username">用户名</label>
+                <input type="text" id="username" name="username"/>
+            </p>
+
+            <p>
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password"/>
+            </p>
+
+            <p>
+                <label for="confirm-password">确认密码</label>
+                <input type="password" id="confirm-password" name="confirm-password"/>
+            </p>
+
+            <p>
+                <button id="check">检查表单</button>
+            </p>
+            <p>
+                <input type="submit" value="登录"/>
+            </p>
+        </fieldset>
+    </form>
+</body>
+</html>
+<script src="vendor/jquery-1.10.0.js"></script>
+<script src="vendor/jquery.validate-1.13.1.js"></script>
+<!--注意html的name不能改，以为  validation用的是name-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#demoForm').validate({
+            rules:{
+//                username是用户名
+                username:{
+//                  (最小)最少两位
+                    minlength:2,
+ //                 (最大)最少10位
+                    maxlength:10,
+//                  长度范围{可以代替最大长度}
+                    rangelength:[2,10],
+//                  必填项目
+                    required:true,
+//                  用户名是否存在
+                    remote:{
+//                        请求地址
+                       url:"remote.json",
+//                  请求方式
+                        type:"post",
+//                   发送的（其他数据）数据
+                        data:{
+//                  发送数据（请求的）的时间
+                            loginTime:function(){
+                                return + new Date;
+                            }
+                        }
+                    }
+                },
+
+//              密码
+                password:{
+                    minlength:2,
+                    maxlength:16,
+                    required:true,
+//              校验用户名是否存在
+                    remote:"remote.json",
+//              长度范围{可以代替最大长度}
+                    rangelength:[2,16],
+//              一般都用于某个值，最大是几最小是几（而不是范围）
+                    max:10,
+                    min:2,
+//              2到10之间的某一个数字
+                    range:[2,10],
+//              必须是email格式
+                    email:true,
+//                    地址格式
+                    url:true,
+//                    时间
+                    dateISO:true,
+//                    只要是数字就行 无论是小数还是负数
+                    number:true,
+//                    必须是整数（0也可以）负数不可以
+                    digits:true,
+//                    必须是整数（0也可以）负数不可以
+                    number:true,
+                },
+//           确认密码{必须加双引号}
+                "confirm-password":{
+//             密码和确认密码必须相等
+                   equalTo:" #password"
+                }
+            },
+//显示中文 提示信息
+            messages:{
+                username:{
+                    required:"必须填写",
+                    minlength:"最小为两位",
+                    maxlength:"最大为10位",
+                    rangelength:"请输入2~10位",
+                    remote:"false用户名不存在",
+
+                },
+
+                password:{
+                    required:"必须填写",
+                    minlength:"最少填写两位数",
+                    maxlength:"最多16位数",
+                    remote:"ture用户名存在",
+                    range:" 2到10之间的某一个数字",
+                    max:"  一般都用于某个值，最大是几最小是几（而不是范围",
+                    min:"  一般都用于某个值，最大是几最小是几（而不是范围）",
+                    email:"填写true ，必须是email格式  ",
+                    url:"必须带有http前缀的",
+                    dateISO:"填写时间",
+                    number:"只要是数字就行 无论是小数还是负数",
+                    digits:" 必须是整数（0也可以）负数不可以",
+
+
+                },
+                "confirm-password":{
+//             密码和确认密码必须相等
+                    equalTo:"密码和确认密码必须相等",
+                }
+            },
+//验证通过后提交表单  只有验证成功才会被触发
+            submitHandler:function(form){
+//            提交表单    form.submit();
+//                在控制台展示表单
+                console.log($(form).serialize());
+            }
+        })
+//验证变大是否填写正确
+        $('#check').click(function(){
+//            验证是否则正确    返回true 就是正确       否则 false错误
+            alert($('#demoForm').valid()?"填写正确!":"填写错误！")
+        })
+    })
+</script>

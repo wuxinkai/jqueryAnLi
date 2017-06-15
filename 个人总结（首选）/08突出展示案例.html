@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+	* { margin: 0; padding: 0; list-style: none; }
+	body { background: #000; }
+	.con { width: 630px; height: 390px; border: 1px solid #fff; margin: 100px auto; padding: 10px 0 0 10px; }
+	.con ul li { float: left; width: 200px; height: 186px; margin: 0 10px 10px 0; _display: inline; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.con ul li').hover(function(e) {
+            $(this).siblings().stop().fadeTo(300,0.5);
+        },function(){
+			$(this).siblings().stop().fadeTo(300,1);
+		}).click(function(e) {
+            $(this).children().slideToggle();/*上下展示，消失或者隐藏。fadeToggle（）是淡入淡出，*/
+        });
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul>
+        	<li><img src="fade/01.jpg" width="200" height="186" /></li>
+        	<li><img src="fade/02.jpg" width="200" height="186" /></li>
+        	<li><img src="fade/03.jpg" width="200" height="186" /></li>
+        	<li><img src="fade/04.jpg" width="200" height="186" /></li>
+        	<li><img src="fade/05.jpg" width="200" height="186" /></li>
+        	<li><img src="fade/06.jpg" width="200" height="186" /></li>
+        </ul>
+    </div>
+</body>
+</html>

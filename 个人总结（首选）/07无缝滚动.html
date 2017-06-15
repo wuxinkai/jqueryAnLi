@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; list-style: none; }
+	.con { margin: 100px auto; width: 600px; border:1px solid #000; height: 200px; position:relative; overflow:hidden; }
+	.con ul { width: 1800px; overflow:hidden; position:absolute; left: 0; top: 0; }
+	.con ul li { float: left; width: 300px; height: 200px; }
+	.control { width: 200px; margin: 0 auto; }
+</style>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.con ul').append($('ul li:eq(0),ul li:eq(1)').clone(true));
+		//$('ul li:eq(0),ul li:eq(1)').clone(true)  //这是克隆了 第一和第二个li标签
+		
+		var timer01 = null;
+		var num = 0;
+		var gun = -3;//全局变量是可以被任何“大括号中的代码”修改的
+		var myFn = function(){
+			num+=gun;//  '+num+'  num = num + -3
+			if(num < -1200){//1200才是一轮结束的位置 不能比这个1200大 所以我们要让ul再回复到0点
+				num = 0;
+			}else if(num > 0){
+				//如果大于0 我要让num的值回复到1200的位置才不会露馅
+				num = -1200;
+			}
+			$('.con ul').css('left',''+num+'px');
+		}
+		
+		timer01 = setInterval(myFn,30);
+		
+		$('.con ul li').mouseover(function(e) {
+            //鼠标进来之后 要停止定时器
+			clearInterval(timer01);
+			//自己不变 小伙伴变透明
+			$(this).siblings().stop().fadeTo(100,0.5);
+			
+        }).mouseout(function(){
+			clearInterval(timer01);//记住在开启定时器之前 就要把之前的定时器都清除掉
+			timer01 = setInterval(myFn,30);
+			$(this).siblings().stop().fadeTo(100,1);
+
+		})
+		
+		$('.right').click(function(e) {	
+           gun = 3;
+        });
+		$('.left').click(function(e) {	
+           gun = -3;
+        });
+		
+	})
+</script>
+</head>
+
+<body>
+	<div class="con">
+    	<ul>
+    		<li><img src="img/01.jpg" width="300" height="200" /></li>
+    		<li><img src="img/02.jpg" width="300" height="200" /></li>
+    		<li><img src="img/03.jpg" width="300" height="200" /></li>
+    		<li><img src="img/04.jpg" width="300" height="200" /></li>
+    	</ul>
+    </div>
+    <div class="control">
+    	<a href="javascript:;" class="left">left</a> <a href="javascript:;" class="right">right</a>
+    </div>
+</body>
+</html>

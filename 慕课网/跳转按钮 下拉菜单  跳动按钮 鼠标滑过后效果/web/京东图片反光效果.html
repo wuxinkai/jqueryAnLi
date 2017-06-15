@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .banner-bg .banner-box a,
+        .banner-bg .banner-box .right-pic {
+            position: relative;
+            float: left;
+            overflow: hidden;
+        }
+        .banner-bg .banner-box a:before,
+        .banner-bg .banner-box .right-pic:before {
+            content: "";
+            position: absolute;
+            overflow: hidden;
+            background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0)));
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+            background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+            -webkit-transform: skewX(-25deg);
+            -moz-transform: skewX(-25deg);
+        }
+        .banner-bg .banner-box a:before {
+            width: 80px;
+            height: 350px;
+            top: -100px;
+            left: -150px;
+        }
+        .banner-bg .banner-box .right-pic:before {
+            width: 80px;
+            height: 550px;
+            top: -40px;
+            left: -180px;
+        }
+        .banner-bg .banner-box a:hover::before {
+            -webkit-transition: left .8s;
+            -moz-transition: left .8s;
+            transition: left .8s;
+            left: 480px;
+        }
+        .banner-bg .banner-box .right-pic:hover::before {
+            -webkit-transition: left .8s;
+            -moz-transition: left .8s;
+            transition: left .8s;
+            left: 480px;
+        }
+    </style>
+</head>
+<body>
+<div class="banner-bg">
+    <div class="banner-box">
+        <div class="right-pic js-play">
+            <img src="../img/banner02.jpg">
+            <div class="sz-play-warp">
+                <span class="sz-play play"></span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

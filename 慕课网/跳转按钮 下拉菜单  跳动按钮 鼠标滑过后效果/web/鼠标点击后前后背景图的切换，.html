@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, textarea, p, th, td, tr, table, tbody, thead, tfoot, em, strong, span { margin: 0 ; padding: 0 ; list-style: none;font: 100% "Microsoft YaHei",sans-serif;}
+        .box_ul{ margin: 100px auto;border: 1px solid #F2F2F2; width: 180px; height: auto;}
+        .box_ul li{ width:180px; height: 42px;  border-bottom: 1px solid #F2F2F2;  line-height: 42px;  text-align: center;  font-size: 14px;  color: #666;  cursor: pointer;  font-weight: bold;  }
+        .box_ul .style_01{ background: url("../img/Browse_ul_ihui1.png") 30px 17px no-repeat}
+        .box_ul .style_02{ background: url("../img/Browse_ul_ihui.png") 30px 17px no-repeat}
+        .box_ul .style_03{ background: url("../img/Browse_ul_ihui2.png") 30px 17px no-repeat}
+        .box_ul .style_04{ background: url("../img/Browse_ul_ihui3.png") 30px 17px no-repeat}
+        .box_ul .style_05{ background: url("../img/Browse_ul_ihui4.png") 30px 17px no-repeat}
+        .box_ul .style_06{ background: url("../img/Browse_ul_ihui6.png") 30px 17px no-repeat}
+        .box_ul .style_07{ background: url("../img/Browse_ul_ihui7.png") 30px 17px no-repeat}
+/*点击后的效果            重点说明; .style_01 和 current 要连载一起使用否则没有效果           */
+        .box_ul .style_01.current{ background: url("../img/Browse_ul_img.png") 30px 17px no-repeat;color: #ED7521}
+        .box_ul .style_02.current{ background: url("../img/Browse_ul_ihover.png") 30px 17px no-repeat;color: #ED7521}
+        .box_ul .style_03.current{ background: url("../img/Browse_ul_ihover2.png") 30px 17px no-repeat;color: #ED7521}
+        .box_ul .style_04.current{ background: url("../img/Browse_ul_ihover4.png") 30px 17px no-repeat;color: #ED7521}
+        .box_ul .style_05.current{ background: url("../img/Browse_ul_ihover3.png") 30px 17px no-repeat;color: #ED7521}
+        .box_ul .style_06.current{ background: url("../img/Browse_ul_ihover5.png") 30px 17px no-repeat;color: #ED7521}
+        .box_ul .style_07.current{ background: url("../img/Browse_ul_ihover6.png") 30px 17px no-repeat;color: #ED7521}
+
+/*外链进来的样式*/
+        .textNeiBu,.text2,.text{ width: 300px ; height: 300px; padding: 20px;}
+        .LeSe{width: 300px; height: 300px; background: #003300;}
+    </style>
+    <script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+ //鼠标点击ul li 列表的效果
+        $(function(){
+            $('.box_ul li').click(function(){
+                $(this).addClass('current').siblings().removeClass('current')
+            })
+        })
+//从外面引入进来的html；
+        $(function(){
+            $(document).ready(function () {
+                $("#neizhi").load("wailiandehtml/red.html");   //这句话是页面 预加载就执行的代理
+                $(".box_ul li:nth-child(1)").on('click',function(){
+                    $("#neizhi").load("wailiandehtml/red.html");   //要和第一句话一样，
+                })
+                $(".box_ul li:nth-child(2)").on('click',function(){
+                    $("#neizhi").load("wailiandehtml/text2.html");
+                })
+                $(".box_ul li:nth-child(3)").on('click',function(){
+                    $("#neizhi").load("wailiandehtml/wailian2ceng/LvSe.html");
+                })
+                $(".box_ul li:nth-child(4)").on('click',function(){
+                    $("#neizhi").load("wailiandehtml/wailian2ceng/huangse.html");
+                })
+                $(".box_ul li:nth-child(5)").on('click',function(){
+                    $("#neizhi").load("wailiandehtml/text.html");
+                })
+                $(".box_ul li:nth-child(6)").on('click',function(){
+                    $("#neizhi").load("wailiandehtml/wuxinkai.html");
+                })
+                $(".box_ul li:nth-child(7)").on('click',function(){
+                    $("#neizhi").load("wailiandehtml/test7.html");
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul class="box_ul">
+        <li class="style_01 current">校园预览</li>
+        <li class="style_02">院校介绍</li>
+        <li class="style_03">学校领导</li>
+        <li class="style_04">院系设置</li>
+        <li class="style_05">招生章程</li>
+        <li class="style_06">专业排名</li>
+        <li class="style_07">历年分数线</li>
+    </ul>
+
+    <div class="neizhi" id="neizhi">
+
+    </div>
+</body>
+</html>

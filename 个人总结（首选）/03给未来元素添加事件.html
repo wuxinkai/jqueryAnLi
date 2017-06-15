@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+/*		$('ul li a').click(function(e) {
+            $(this).parent().remove();
+        });	*/
+		
+		//这是不推荐使用的 因为效率低下
+/*		$('ul li a').live('click',function(){
+			$(this).parent().remove();
+		})*/
+		
+		$(document).on('click','ul li a',function(){
+			$(this).parent().remove(); //删除
+		})
+		
+		$('.addBtn').click(function(e) {
+            var myTag = $('<li>今天很好1 <a href="javascript:;">删除</a></li>');
+			$('ul').append(myTag);//添加
+        });
+		
+	})
+</script>
+</head>
+
+<body>
+	<a href="javascript:;" class="addBtn">添加</a>
+    <ul>
+    	<li>今天很好1 <a href="javascript:;">删除</a></li>
+    	<li>今天很好1 <a href="javascript:;">删除</a></li>
+    	<li>今天很好1 <a href="javascript:;">删除</a></li>
+    	<li>今天很好1 <a href="javascript:;">删除</a></li>
+    	<li>今天很好1 <a href="javascript:;">删除</a></li>
+    </ul>
+</body>
+</html>

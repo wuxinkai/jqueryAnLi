@@ -1,0 +1,10 @@
+#top {
+_position: absolute;
+_bottom: auto;
+_top: expression(eval(document.documentElement.scrollTop));
+} 
+
+*html{
+	background-image:url(about:blank);
+	background-attachment:fixed;
+	}

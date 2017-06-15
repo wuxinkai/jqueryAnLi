@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	* { margin: 0; padding: 0; }
+	body { height: 3000px; }
+	.leftAd,.rightAd { width: 150px; height: 440px; position: absolute; top: 50px; }
+	.leftAd { left: 0;}
+	.rightAd { right: 0; }
+	button { position:absolute; right: 0px; bottom: 0px; }
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(window).scroll(function(e) {
+			//alert($(window).scrollTop());
+			//console.log($(window).scrollTop());
+        	var sT = $(window).scrollTop() + 50;// '+sT+'
+			$('.leftAd,.rightAd').stop().animate({'top':''+sT+'px'},500);
+        });
+		
+		$('button').click(function(e) {
+            $('.leftAd,.rightAd').hide();
+        });
+	})
+</script>
+</head>
+
+<body>
+	<div class="leftAd">
+    	<button>关闭</button>
+   		<img src="1.gif" width="150" height="440" /> 
+    </div>
+	<div class="rightAd">
+        <button>关闭</button>
+   		<img src="2.gif" width="150" height="440" /> 
+    </div>
+</body>
+</html>

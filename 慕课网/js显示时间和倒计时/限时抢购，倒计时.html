@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="content3">
+        <div class="time">
+            还剩 <span id="LeftTime" style="font-size: 100px;"></span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function() {
+            showTime()
+        };
+        function showTime(){
+                //     当前时间
+                        var curtime = new Date();
+                //        结束时间
+                        var endtime = new Date('2018/01/02,17:00:00');
+                //        时间差  (结束 - 当前)     getTime是毫秒数                得到的是秒
+                        var lefttime = parseInt((endtime.getTime() - curtime.getTime())/1000);
+                //   天
+                        var d = parseInt(lefttime/(24*60*60));
+                //   小时
+                        var h = parseInt(lefttime/(60*60)%24);
+                //    分钟
+                        var m = parseInt(lefttime/60%60);
+                //     秒
+                        var s = lefttime%60;
+                        document.getElementById('LeftTime').innerHTML = d+'天'+h+'小时'+m+'分钟'+s +'秒';
+                //    时间到了判断
+                        if(lefttime <= 0){
+                            document.getElementById('LeftTime').innerHTML = '团购结束';
+                        };
+                // /定时器
+                         setTimeout (showTime , 500)
+            }
+    </script>
+</body>
+</html>
